@@ -5,7 +5,7 @@ description: > # description of the site (multiple lines allowed)
   This blog is to record what I studied. <br>
   I will upload papers, codes, studies, schedules, and so on. <br>
   Sometimes there could be some errors or missing parts. <br> 
-  I will try to study hard and make up for the lacking parts.
+  I will try to study hard and make up for the lacking parts. <br>
  
 permalink: /:slug
 
