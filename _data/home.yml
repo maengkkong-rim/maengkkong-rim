@@ -1,5 +1,5 @@
 navbar_entries:
-  - title: about
+  - title: 🌙 about
     url: about
 
   - title: blog
@@ -61,7 +61,7 @@ footer_entries:
 #  - title: twitter
 #    url: https://twitter.com/abhinav
 
-  - title: github
+  - title: github 🌙
     url: https://github.com/maengkkong-rim
 
 #  - title: feed
