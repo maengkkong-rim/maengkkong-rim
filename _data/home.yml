@@ -26,10 +26,10 @@ project_entries:
     url: overview-post
     desc: write down the latest schedule
 
-#  - title: Project 5
-#    url: overview-post
-#    desc: Moonwalk also has horizontal list (used in header and footer)
-#    highlight: WIP
+  - title: Etc.
+    url: overview-post
+    desc: etc.
+
 
 #  - title: Project 6
 #    url: overview-post
