@@ -2,7 +2,7 @@
 layout: post
 title: About
 ---
-
-This is an example page!
-
-Actually, it has the same layout of a post...
+<br>
+interest: AI, Robotics <br>
+location: Daejeon, Republic of Korea <br>
+e-mail: medjnr99@naver.com
