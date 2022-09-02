@@ -50,3 +50,9 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-soopr-seo-tag
+  
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-6J8YNCTP6D"
+    anonymize_ip:
