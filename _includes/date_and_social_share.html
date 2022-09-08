@@ -5,6 +5,11 @@
   {% if page.date %}
     <span>{{ page.date | date: "%B %Y"}}</span>
   {% endif %}
+  {% if page.tags %}
+    {% for i in page.tags|length %}
+      <span>{{ page.tags[i] }} </span>
+    {% endfor %}
+  {% endif %}
 </p>
 
 <!--
