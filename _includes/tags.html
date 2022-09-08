@@ -9,8 +9,12 @@
   </script>
 </head>
 
+print_tags();
+
+<!--
 <p class="post-date text-bold text-upcase">
   {% if page.tags %}
-    print_tags();
+      <span class="text-bold">{{ page.tags }}</span>
   {% endif %}
 </p>
+-->
