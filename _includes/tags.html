@@ -1,12 +1,16 @@
-<!--
-function print_tags() {
-for(i=0;i<page.tags.length;i++)
-  document.write("# ", page.tags[i])
-}
--->
+
+<head>
+  <title>function</title>
+  <script>
+    function print_tags() {
+      for(i=0;i<page.tags.length;i++)
+        document.write("# ", page.tags[i])
+    }
+  </script>
+</head>
 
 <p class="post-date text-bold text-upcase">
   {% if page.tags %}
-    <span class="text-bold">{{ page.tags }}</span>
+    print_tags();
   {% endif %}
 </p>
