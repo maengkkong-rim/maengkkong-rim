@@ -1,5 +1,10 @@
-<p class="text-bold text-upcase">
+function print_tags() {
+for(i=0;i<len(page.tags);i++)
+  document.write("# ", page.tags[i])
+}
+
+<p class="post-date text-bold text-upcase">
   {% if page.tags %}
-    <span class="text-bold">{{ page.tags[0] }}</span>
+    <span class="text-bold">{{ print_tags }}</span>
   {% endif %}
 </p>
