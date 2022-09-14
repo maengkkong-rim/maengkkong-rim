@@ -1,7 +1,7 @@
 <p class="post-date text-bold text-upcase">
   {% if page.tags %}
     {% for tag in page.tags %}
-    <a class="label">#{{ tag }}</a> &nbsp;
+    <a class="label" href="{{ '/tags' | prepend: site.baseurl }}">#{{ tag }}</a> &nbsp;
     {% endfor %}
   {% endif %}
 </p>
