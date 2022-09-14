@@ -2,16 +2,20 @@
 layout: post
 author: jnr
 tags:
-  - apple &nbsp
-  - test &nbsp
-  - coding test &nbsp
+  - [apple test coding]
 ---
 
 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)
 
-### Abstract
-### Introduction
-### 
+### Abstract[^1]
+### Introduction[^2]
+### Background[^3]
+### Approach[^4]
+Experiments
+### Results and Discussion[^5]
+### Conclusion[^6]
+
+
 
 
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.
@@ -60,7 +64,7 @@ Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus 
 Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. Or you can just have an clean horizontal rule.
 
 ## Code
-
+[^1]: ## Abstract
 Now some code:
 
 ```
