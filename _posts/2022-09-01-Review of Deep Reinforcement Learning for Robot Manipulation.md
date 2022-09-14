@@ -2,18 +2,18 @@
 layout: post
 author: jnr
 tags:
-  - [apple&nbsp test coding]
+  - [apple test coding]
 ---
-
+<br>
 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)
 
-`Abstract`
-`Introduction`
-`Background`
-`Approach`
+`Abstract` <br>
+`Introduction` <br>
+`Background` <br>
+`Approach` <br>
 Experiments
-`Results and Discussion`
-`Conclusion`
+`Results and Discussion` <br>
+`Conclusion` <br>
 
 
 
