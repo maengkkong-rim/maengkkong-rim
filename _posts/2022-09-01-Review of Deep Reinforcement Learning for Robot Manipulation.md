@@ -10,9 +10,9 @@ tags: apple test coding
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br>
 
 <h2 id="abs">Abstract</h2>
-- address the current status of RL algorithms
-- cover essential theoretical background and limit of RL algorithms in solving practical problems in robotics
-- give future directions for RL research
+- address the current status of RL algorithms <br>
+- cover essential theoretical background and limit of RL algorithms in solving practical problems in robotics <br>
+- give future directions for RL research <br>
 <br>
 
 <h2 id="int">Introduction</h2>
