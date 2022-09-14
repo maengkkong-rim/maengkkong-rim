@@ -1,5 +1,7 @@
 <p class="post-date text-bold text-upcase">
   {% if page.tags %}
-      <span class="text-bold">#{{ page.tags[0] }}&nbsp#{{ page.tags[1] }}&nbsp#{{ page.tags[2] }}&nbsp</span>
+    {% for tag in page.tags %}
+      <a class="label">#{{ page.tags }}</a> &nbsp;
+     {% endfor %}
   {% endif %}
 </p>
