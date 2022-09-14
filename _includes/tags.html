@@ -1,32 +1,5 @@
-<html>
-  <head>
-    <meta charset="utf8">
-    <script>
-      function print_tags() {
-        for(i=0;i<page.tags.length;i++) {
-          document.write("# ", page.tags[i]);
-        }
-      }
-    </script>
-    <style>
-      box{
-        background-color: #8297ed;
-        color: #1f242a;
-        font-size: 20px;
-        border-radius: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <box> {{ page.tags[0] }} </box>
-  </body>
-</html>
-
-
-<!--
 <p class="post-date text-bold text-upcase">
   {% if page.tags %}
       <span class="text-bold">{{ page.tags }}</span>
   {% endif %}
 </p>
--->
