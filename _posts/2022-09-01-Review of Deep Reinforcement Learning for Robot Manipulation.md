@@ -7,14 +7,13 @@ tags:
 <br><br>
 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
-[`Abstract`](#abs) [`Introduction`](#int) [`Background`](#bac) [`Approach`](#app) [`Results and Discussion`](#res) [`Conclusion`](#con) <br>
-Experiments
-
+[`Abstract`](#abs) [`Introduction`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results and Discussion`](#res) [`Conclusion`](#con) <br>
 
 <h2 id="abs">Abstract</h2>
 <h2 id="int">Introduction</h2>
 <h2 id="bac">Background</h2>
 <h2 id="app">Approach</h2>
+<h2 id="exp">Experiments</h2>
 <h2 id="res">Results and Discussion</h2>
 <h2 id="con">Conclusion</h2>
 
