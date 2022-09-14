@@ -7,6 +7,13 @@ tags:
   - coding test &nbsp
 ---
 
+H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)
+
+### Abstract
+### Introduction
+### 
+
+
 Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.
 
 # Sample heading 1
@@ -61,7 +68,7 @@ const ultimateTruth = 'follow middlepath';
 console.log(ultimateTruth);
 ```
 
-And here is some `inline code`!
+And here is some `inline code`! 
 
 ## Tables
 
