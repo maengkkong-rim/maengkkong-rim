@@ -5,7 +5,7 @@ tags:
   - [apple test coding]
 ---
 
-H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)
+[link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643) H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595.
 
 ### Abstract[^1]
 ### Introduction[^2]
@@ -18,7 +18,7 @@ Experiments
 
 
 
-Lorem ipsum[^1] dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.
 
 # Sample heading 1
 ## Sample heading 2
@@ -90,10 +90,3 @@ Now a table:
 
 This is an image[^4]
 
----
-{: data-content="footnotes"}
-
-[^1]: this is a footnote. You should reach here if you click on the corresponding superscript number.
-[^2]: hey there, don't forget to read all the footnotes!
-[^3]: this is another footnote.
-[^4]: this is a very very long footnote to test if a very very long footnote brings some problems or not; hope that there are no problems but you know sometimes problems arise from nowhere.
