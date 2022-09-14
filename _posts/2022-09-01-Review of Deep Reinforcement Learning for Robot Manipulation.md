@@ -1,8 +1,7 @@
 ---
 layout: post
 author: jnr
-tags:
-  - [apple test coding]
+tags: apple test coding
 ---
 ---
 <br>
@@ -11,6 +10,11 @@ tags:
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br>
 
 <h2 id="abs">Abstract</h2>
+- address the current status of RL algorithms
+- cover essential theoretical background and limit of RL algorithms in solving practical problems in robotics
+- give future directions for RL research
+<br>
+
 <h2 id="int">Introduction</h2>
 <h2 id="bac">Background</h2>
 <h2 id="app">Approach</h2>
