@@ -2,18 +2,18 @@
 layout: post
 author: jnr
 tags:
-  - [apple test coding]
+  - [#apple<br>    #test    #coding]
 ---
 
-[link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643) H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595.
+H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)
 
-### Abstract[^1]
-### Introduction[^2]
-### Background[^3]
-### Approach[^4]
+`Abstract`
+`Introduction`
+`Background`
+`Approach`
 Experiments
-### Results and Discussion[^5]
-### Conclusion[^6]
+`Results and Discussion`
+`Conclusion`
 
 
 
@@ -64,7 +64,6 @@ Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus 
 Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Etiam id nisl ut lorem gravida euismod. Or you can just have an clean horizontal rule.
 
 ## Code
-[^1]: ## Abstract
 Now some code:
 
 ```
