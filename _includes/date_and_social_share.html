@@ -4,10 +4,11 @@
     <span class="text-bold">{{ page.author }}</span> &nbsp;/ 
   {% endif %}
   {% if page.date %}
-    <span>{{ page.date | date: "%m-%d-%Y"}}</span> /
+    <span>{{ page.date | date: "%m-%d-%Y"}}</span> &nbsp;/
   {% endif %}
   {% if page.categories %}
     <span class="text-bold">categories-{{ page.caterories }}</span>
+
   {% endif %}
 </p>
 
