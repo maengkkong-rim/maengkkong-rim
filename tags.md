@@ -21,11 +21,12 @@ permalink: /tags/
 {% endunless %}
 {% endif %}
 {% endfor %}
-{% for tag in tags %}
-<span class="label label-success" href="#{{ tag | slugify }}"> #{{ tag }}</span> &npsb;
-{% endfor %}
+<p class="post-date text-bold text-upcase">
+  {% for tag in tags %}
+    <a class="label label-success" href="{{ tag | slugify }}"> #{{ tag }}</span> &nbsp;
+  {% endfor %}
+</p>
 <hr class="divider">
-
 
 {% for tag in tags %}
 <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
