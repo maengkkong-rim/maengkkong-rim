@@ -2,6 +2,7 @@
   <ul>
     {% for post in site.posts %}
       {% if forloop.counter0 > 4 %}
+        {{ forloop.counter0 }}
         {% break %}
       {% endif %}    
       <li class="post-list-item">
