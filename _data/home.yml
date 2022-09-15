@@ -13,11 +13,11 @@ navbar_entries:
 
 project_entries:
   - title: Paper Review
-    url: paper-review
+    url: category/paper-review
     desc: review and summarize papers 
 
   - title: Codes
-    url: codes
+    url: /category/codes
     desc: organize and explain codes
     highlight: WIP
 
