@@ -7,7 +7,7 @@ title: Paper review
 {% if site.posts.size > 0 %}
   <ul>
     {% for post in site.posts reversed %}
-      {% if post.categories == "paper-review" %}
+      {% if post.categories == 'paper-review' %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
