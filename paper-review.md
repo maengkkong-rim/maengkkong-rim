@@ -1,4 +1,4 @@
 ---
-layout: blog
+layout: post-menu
 title: Paper review
 ---
