@@ -1,7 +1,7 @@
 ---
 layout: post
 author: jnr
-categories: paper-review codes schedule
+categories: paper-review
 tags: apple test coding
 ---
 ---
