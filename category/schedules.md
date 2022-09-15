@@ -2,7 +2,7 @@
 layout: category
 title: Schedules
 ---
-<h1 class="post-title">{{ page.title }}</h1>
+<h1 class="post-title">{{ page.title }}</h1><br>
 
 {% if site.posts.size > 0 %}
   <ul>
