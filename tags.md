@@ -22,13 +22,13 @@ permalink: /tags/
 {% endif %}
 {% endfor %}
 {% for tag in tags %}
-<a class="label label-success" href="#{{ tag | slugify }}" >#{{ tag }}</a> &nbsp;
+<a class="label label-success" href="#{{ tag | slugify }}" style="display:inline">#{{ tag }}</a> &nbsp;
 {% endfor %}
 <hr class="divider">
 
 
 {% for tag in tags %}
-<h4 id="{{ tag | slugify }}">#{{ tag }}</h4>
+<h4 id="{{ tag | slugify }}">{{ tag }}</h4>
 <ul>
   {% for post in site.posts %}
   {% if post.tags contains tag %}
