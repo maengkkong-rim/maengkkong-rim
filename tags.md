@@ -22,9 +22,10 @@ permalink: /tags/
 {% endif %}
 {% endfor %}
 {% for tag in tags %}
-<a class="label label-success" href="#{{ tag | slugify }}" >#{{ tag }}</a>
+<a class="label" href="#{{ tag | slugify }}" >#{{ tag }}</a>
 {% endfor %}
 <hr class="divider">
+
 {% for tag in tags %}
 <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
 <ul>
