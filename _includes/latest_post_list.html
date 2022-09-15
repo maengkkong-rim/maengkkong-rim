@@ -1,7 +1,8 @@
 {% if site.posts.size > 0 %}
   <ul>
-    {% for post in site.posts.slice(0,5) %}  
+    {% for post in site.posts %}  
       <li class="post-list-item">
+        {{ forloop.counter0 }}
         <span class="home-date">
           {{ post.date | date: site.theme_config.date_format }}»
         </span>
