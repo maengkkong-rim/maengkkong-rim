@@ -7,8 +7,9 @@
     <span>{{ page.date | date: "%m-%d-%Y"}}</span> &nbsp;/
   {% endif %}
   {% if page.categories %}
-    <span class="text-bold">categories-{{ page.categories }}</span>
-
+    {% for cat in page.categories %}
+    <a class="text-bold">{{ cat }}</a> &nbsp;
+    {% endfor %}
   {% endif %}
 </p>
 
