@@ -3,7 +3,6 @@ layout: post
 title: Tags
 permalink: /tags/
 ---
-<br>
 {% assign rawtags = "" %}
 {% for post in site.posts %}
 {% assign ttags = post.tags | join:'|' | append:'|' %}
@@ -22,10 +21,9 @@ permalink: /tags/
 {% endif %}
 {% endfor %}
 {% for tag in tags %}
-<a class="label label-success" href="{{ tag | slugify }}"> #{{ tag }}</span> &nbsp;
+<a class="label label-success" href="#{{ tag | slugify }}" >#{{ tag }}</a> &nbsp;
 {% endfor %}
 <hr class="divider">
-
 {% for tag in tags %}
 <h4 id="{{ tag | slugify }}">{{ tag }}</h4>
 <ul>
