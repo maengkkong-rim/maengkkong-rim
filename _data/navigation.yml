@@ -1,9 +1,0 @@
-main:
-  - title: home
-    url: https://maengkkong-rim.github.io/rim/
-
-  - title: blog
-    url: blog
-    
-  - title: tags
-    url: tags
