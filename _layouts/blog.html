@@ -7,7 +7,7 @@ layout: blog-menu
   <h3 class="post-title">Paper review</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "paper-review" %}
-      {% for post in pap reversed %}
+      {% for post in pap limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
@@ -16,11 +16,12 @@ layout: blog-menu
         </li>
       {% endfor %}
     </ul>
+    <a href="https://maengkkong-rim.github.io/rim/category/paper-review" style="text-decoration:none">read more</a>
 <hr />
   <h3 class="post-title">Codes</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "codes" %}
-      {% for post in pap reversed %}
+      {% for post in pap %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
@@ -33,7 +34,7 @@ layout: blog-menu
   <h3 class="post-title">Study</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "study" %}
-      {% for post in pap reversed %}
+      {% for post in pap %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
@@ -46,7 +47,7 @@ layout: blog-menu
   <h3 class="post-title">Schedules</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "schedules" %}
-      {% for post in pap reversed %}
+      {% for post in pap %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
@@ -59,7 +60,7 @@ layout: blog-menu
   <h3 class="post-title">Etc.</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "etc" %}
-      {% for post in pap reversed %}
+      {% for post in pap %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
