@@ -10,7 +10,7 @@
         </span>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </li>
-      {% forloop.counter|add:1 %}
+      {% forloop.counter0|add:1 %}
     {% endfor %}
   </ul>
 {% endif %}
