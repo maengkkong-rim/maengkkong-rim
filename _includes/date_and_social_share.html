@@ -1,10 +1,13 @@
 <p class="post-date text-bold text-upcase">
   {% if page.author %}
     <br>
-    <span class="text-bold">{{ page.author }}</span> / 
+    <span class="text-bold">{{ page.author }}</span> &nbsp;/ 
   {% endif %}
   {% if page.date %}
-    <span>{{ page.date | date: "%m-%d-%Y"}}</span>
+    <span>{{ page.date | date: "%m-%d-%Y"}}</span> /
+  {% endif %}
+  {% if page.categories %}
+    <span class="text-bold">categories-{{ page.caterories }}</span>
   {% endif %}
 </p>
 
