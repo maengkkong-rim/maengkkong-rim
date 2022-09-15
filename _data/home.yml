@@ -13,24 +13,24 @@ navbar_entries:
 
 project_entries:
   - title: Paper Review
-    url: overview-post
+    url: paper-review
     desc: review and summarize papers 
 
   - title: Codes
-    url: overview-post
+    url: codes
     desc: organize and explain codes
     highlight: WIP
 
   - title: Study
-    url: overview-post
+    url: study
     desc: record what I have studied
 
   - title: Schedules
-    url: overview-post
+    url: schedules
     desc: write down the latest schedule
 
   - title: Etc.
-    url: overview-post
+    url: etc
     desc: etc.
 
 
