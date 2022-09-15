@@ -5,7 +5,7 @@ layout: blog-menu
 
 {% if site.posts.size > 0 %}
   {% assign pap = site.posts | where: "categories", "paper-review" %}
-  <h3 class="post-title">Paper review [{{ pap|length }}]</h3><br>
+  <h3 class="post-title">Paper review [{{ pap.length }}]</h3><br>
     <ul>
       {% for post in pap limit:5 %}
         <li class="post-list-item">
