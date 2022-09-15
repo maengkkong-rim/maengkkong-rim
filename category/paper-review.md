@@ -2,7 +2,7 @@
 layout: category
 title: Paper review
 ---
-<h1 class="post-title">{{ page.title }}</h1><br>
+<h1 class="post-title">{{ page.title }}</h1>
 
 {% if site.posts.size > 0 %}
   <ul>
