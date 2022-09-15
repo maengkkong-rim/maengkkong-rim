@@ -1,13 +1,16 @@
 {% if site.posts.size > 0 %}
   <ul>
+    {% set break = false %}
     {% for post in site.posts %}  
       <li class="post-list-item">
-        {{ forloop.counter0 }}
         <span class="home-date">
           {{ post.date | date: site.theme_config.date_format }}»
         </span>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </li>
+      {% if post.id == 4 %}
+        {% set break = true %}
+      {% endif %}
     {% endfor %}
   </ul>
 {% endif %}
