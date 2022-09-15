@@ -17,20 +17,20 @@ project_entries:
     desc: review and summarize papers 
 
   - title: Codes
-    url: /category/codes
+    url: category/codes
     desc: organize and explain codes
     highlight: WIP
 
   - title: Study
-    url: study
+    url: category/study
     desc: record what I have studied
 
   - title: Schedules
-    url: schedules
+    url: category/schedules
     desc: write down the latest schedule
 
   - title: Etc.
-    url: etc
+    url: category/etc
     desc: etc.
 
 
