@@ -1,8 +1,7 @@
 ---
 layout: blog-menu
-title: Blog
 ---
-<h1 class="post-title">{{ page.title }}</h1>
+<h1 class="post-title">Blog</h1>
 
 {% if site.posts.size > 0 %}
   <h3 class="post-title">Paper review</h3><br>
@@ -17,7 +16,7 @@ title: Blog
         </li>
       {% endfor %}
     </ul>
-
+---
   <h3 class="post-title">Codes</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "codes" %}
@@ -30,7 +29,7 @@ title: Blog
         </li>
       {% endfor %}
     </ul>
-
+---
   <h3 class="post-title">Study</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "study" %}
@@ -43,7 +42,7 @@ title: Blog
         </li>
       {% endfor %}
     </ul>
-
+---
   <h3 class="post-title">Schedules</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "schedules" %}
@@ -56,7 +55,7 @@ title: Blog
         </li>
       {% endfor %}
     </ul>
-
+---
   <h3 class="post-title">Etc.</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "etc" %}
@@ -69,5 +68,5 @@ title: Blog
         </li>
       {% endfor %}
     </ul>
-
+---
 {% endif %}
