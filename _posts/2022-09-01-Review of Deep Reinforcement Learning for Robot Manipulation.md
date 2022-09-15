@@ -1,6 +1,7 @@
 ---
 layout: post
 author: jnr
+categories: paper-review
 tags: apple test coding
 ---
 ---
