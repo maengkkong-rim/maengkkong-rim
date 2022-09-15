@@ -28,19 +28,22 @@ layout: default
 
 {% if site.theme_config.show_blog == true %}
   <h2>{{ site.theme_config.home.title_blog }}</h2>
-
-
-
-
-  {% for tag in page.tags %}
-    <a class="label">#{{ tag }}</a> &nbsp;
-    <a class="label" href="{{ '/tags' | prepend: site.baseurl }}">#{{ tag }}</a> &nbsp;
-    {% endfor %}
-
-
-
-
-  {% include post_list.html %}
+  {% if site.posts.size > 0 %}
+    <ul>
+      {% for post in site.posts %}
+        {% if forloop.counter == 5 %}
+          {% break %}
+        {% endif %}
+        <li class="post-list-item">
+          <span class="home-date">
+            {{ post.date | date: site.theme_config.date_format }}»
+          </span>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          i ++
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endif %}
 
 {% if site.theme_config.show_old_projects == true %}
