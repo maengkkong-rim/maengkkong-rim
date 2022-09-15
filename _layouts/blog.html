@@ -16,7 +16,7 @@ layout: blog-menu
         </li>
       {% endfor %}
     </ul>
----------------------------------------------------------------------------------------------------------------------------------
+<hr />
   <h3 class="post-title">Codes</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "codes" %}
@@ -42,7 +42,7 @@ layout: blog-menu
         </li>
       {% endfor %}
     </ul>
----
+<hr />
   <h3 class="post-title">Schedules</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "schedules" %}
@@ -55,7 +55,7 @@ layout: blog-menu
         </li>
       {% endfor %}
     </ul>
----
+<hr />
   <h3 class="post-title">Etc.</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "etc" %}
@@ -68,5 +68,4 @@ layout: blog-menu
         </li>
       {% endfor %}
     </ul>
----
 {% endif %}
