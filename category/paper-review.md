@@ -6,15 +6,14 @@ title: Paper review
 
 {% if site.posts.size > 0 %}
   <ul>
-    {% for post in site.posts reversed %}
-      {% if "paper-review" in post.categories %}
-        <li class="post-list-item">
-          <span class="home-date">
-            {{ post.date | date: site.theme_config.date_format }}»
-          </span>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endif %}
+    {% assign pap = site.posts | where: "categories", "paper-review" %}
+    {% for post in pap reversed %}
+      <li class="post-list-item">
+        <span class="home-date">
+          {{ post.date | date: site.theme_config.date_format }}»
+        </span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
     {% endfor %}
   </ul>
 {% endif %}
