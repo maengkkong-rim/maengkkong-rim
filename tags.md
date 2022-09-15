@@ -3,6 +3,7 @@ layout: post
 title: Tags
 permalink: /tags/
 ---
+<br>
 {% assign rawtags = "" %}
 {% for post in site.posts %}
 {% assign ttags = post.tags | join:'|' | append:'|' %}
