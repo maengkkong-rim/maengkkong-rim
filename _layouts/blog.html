@@ -7,7 +7,7 @@ layout: blog-menu
   <h3 class="post-title">Paper review</h3><br>
     <ul>
       {% assign pap = site.posts | where: "categories", "paper-review" %}
-      {% for post in pap limit:5 %}
+      {% for post in pap reversed limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
             {{ post.date | date: site.theme_config.date_format }}»
