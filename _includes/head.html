@@ -17,6 +17,18 @@
 
   {% seo title=false %}
   {% feed_meta %}
+  
+  
+ <!-- tipuesearch -->
+ <link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+ {% if page.tipue_search_active %}
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch_content.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch_set.js"></script>
+ <script src="/assets/tipuesearch/tipuesearch.min.js"></script>
+ {% endif %}
+  
+  
 
   <link rel="shortcut icon" type="image/x-icon" href="/{{ site.favicon | relative_url }}" />
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" />
