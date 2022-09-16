@@ -17,7 +17,7 @@ tags: apple test coding
 <br>
 
 <h2 id="int">Introduction</h2>
-There are some inherent difficulties in applying RL to solve practical robotic challenges. Our review aims to provide our perceived picture of using RL in the context of robot manipulation. We try to cover background knowledge, interesting research results, open problems, and provide our insights into future directions. <br>
+There are some `inherent difficulties` in applying RL to solve practical robotic challenges. Our review aims to `provide our perceived picture` of using RL in the context of robot manipulation. We try to cover background knowledge, interesting research results, open problems, and provide our insights into future directions. <br>
 we decided to conduct the review starting in 2013. we start in section Ⅱ by describing key RL concepts and terminology. section Ⅲ continues with a taxonomy of RL algorithms followed by section Ⅳ with a focus on the context of robot manipulation. we describe our perspectives about future directions in section Ⅴ and section Ⅵ concludes the review.
 <br>
 
