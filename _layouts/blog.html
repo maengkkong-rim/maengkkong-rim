@@ -20,9 +20,9 @@ layout: blog-menu
       </li>
     </ul><br>
 <hr />
-  <h3 class="post-title">Codes</h3><br>
+  {% assign pap = site.posts | where: "categories", "codes" %}
+  <h3 class="post-title">Codes [{{ pap.size }}]</h3><br>
     <ul>
-      {% assign pap = site.posts | where: "categories", "codes" %}
       {% for post in pap limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
@@ -36,9 +36,9 @@ layout: blog-menu
       </li>
     </ul><br>
 <hr />
-  <h3 class="post-title">Study</h3><br>
+  {% assign pap = site.posts | where: "categories", "study" %}
+  <h3 class="post-title">Study [{{ pap.size }}]</h3><br>
     <ul>
-      {% assign pap = site.posts | where: "categories", "study" %}
       {% for post in pap limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
@@ -52,9 +52,9 @@ layout: blog-menu
       </li>
     </ul><br>
 <hr />
-  <h3 class="post-title">Schedules</h3><br>
+  {% assign pap = site.posts | where: "categories", "schedules" %}
+  <h3 class="post-title">Schedules [{{ pap.size }}]</h3><br>
     <ul>
-      {% assign pap = site.posts | where: "categories", "schedules" %}
       {% for post in pap limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
@@ -68,9 +68,9 @@ layout: blog-menu
       </li>
     </ul><br>
 <hr />
-  <h3 class="post-title">Etc.</h3><br>
+  {% assign pap = site.posts | where: "categories", "etc" %}
+  <h3 class="post-title">Etc. [{{ pap.size }}]</h3><br>
     <ul>
-      {% assign pap = site.posts | where: "categories", "etc" %}
       {% for post in pap limit:5 %}
         <li class="post-list-item">
           <span class="home-date">
