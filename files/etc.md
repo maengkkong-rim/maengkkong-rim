@@ -3,7 +3,7 @@ layout: category
 title: Etc.
 ---
 {% assign pap = site.posts | where: "categories", "etc" %}
-<h1 class="post-title">{{ page.title }}[{{ pap.size}}]</h1><br>
+<h1 class="post-title">{{ page.title }}&npsb;[{{ pap.size}}]</h1><br>
 
 {% if site.posts.size > 0 %}
   <ul>
