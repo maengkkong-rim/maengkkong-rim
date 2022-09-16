@@ -28,6 +28,10 @@ project_entries:
   - title: Schedules
     url: files/schedules
     desc: write down the latest schedule
+    
+  - title: Clipping
+    url: files/clipping
+    desc: clip out useful material
 
   - title: Etc.
     url: files/etc
