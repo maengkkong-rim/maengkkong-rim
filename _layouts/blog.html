@@ -68,6 +68,22 @@ layout: blog-menu
       </li>
     </ul><br>
 <hr />
+  {% assign pap = site.posts | where: "categories", "clipping" %}
+  <h3 class="post-title">Clipping [{{ pap.size }}]</h3><br>
+    <ul>
+      {% for post in pap limit:5 %}
+        <li class="post-list-item">
+          <span class="home-date">
+            {{ post.date | date: site.theme_config.date_format }}»
+          </span>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+      <li>
+        <a href="https://maengkkong-rim.github.io/rim/files/clipping" style="text-decoration:none">read more</a>
+      </li>
+    </ul><br>
+<hr />
   {% assign pap = site.posts | where: "categories", "etc" %}
   <h3 class="post-title">Etc. [{{ pap.size }}]</h3><br>
     <ul>
