@@ -8,24 +8,39 @@ tags: apple test coding
 <br>
 📝 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
-📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
+📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
 
 <h2 id="abs">Abstract</h2>
-- address the current status of RL algorithms <br>
-- cover essential theoretical background and limit of RL algorithms in solving practical problems in robotics <br>
-- give future directions for RL research <br>
+- Address the current status of RL algorithms <br>
+- Cover essential theoretical background and limit of RL algorithms in solving practical problems in robotics <br>
+- Give future directions for RL research <br>
 <br>
 
 <h2 id="int">Introduction</h2>
+There are some inherent difficulties in applying RL to solve practical robotic challenges. Our review aims to provide our perceived picture of using RL in the context of robot manipulation. We try to cover background knowledge, interesting research results, open problems, and provide our insights into future directions. <br>
+we decided to conduct the review starting in 2013. we start in section Ⅱ by describing key RL concepts and terminology. section Ⅲ continues with a taxonomy of RL algorithms followed by section Ⅳ with a focus on the context of robot manipulation. we describe our perspectives about future directions in section Ⅴ and section Ⅵ concludes the review.
+<br>
+
 <h2 id="bac">Background</h2>
+💡 [KEY CONCEPTS AND TERMINOLOGY]
+
+💡 [TAXONOMY OF RL ALGORITHMS]
+<br>
+
 <h2 id="app">Approach</h2>
-<h2 id="exp">Experiments</h2>
+💡 [sample inefficiency]
+💡 [exploration and exploitation]
+💡 [generalization and reproducibility]
+<br>
+
 <h2 id="res">Results and Discussion</h2>
 
+<br>
+
 <h2 id="con">Conclusion</h2>
-- described RL algorithms used in robot manipulation <br>
-- adjusting RL on real robot applications is still limited <br>
-- but RL in robot manipulation will have a promising future ahead <br>
+- Described RL algorithms used in robot manipulation <br>
+- Adjusting RL on real robot applications is still limited <br>
+- But RL in robot manipulation will have a promising future ahead <br>
 
 
 
