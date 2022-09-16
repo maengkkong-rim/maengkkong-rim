@@ -25,7 +25,7 @@ permalink: /tags/
 
 
 
-{% assign i = 0 %}
+{% var i=0 %}
 {% for post in site.posts %}
   {% if post.tags contains tag %}
     {% i = i+1 %}
