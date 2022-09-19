@@ -38,7 +38,7 @@ It contains:
 - a reward function $R(s,a)\in \mathcal{R}$
 - a probability distribution $p(s',r\|s,a)$ of the environment <br><br>
 
-A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $\phi$.
+A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $\pi$.
 - value function $V^(phi)(s)=E_(a~phi)[R(tau)|s_t=s]$
 - action-value function $Q^(phi)(s,a)=E_(a~phi)[R(tau)|s_t=s, a_t=a]$
 - optimal value function $V^(*)=max_phi E_(a~phi)[R(tau)|s_0=s]$
