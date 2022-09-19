@@ -98,7 +98,7 @@ Transfer learning[^4] tries to use experience from one set of tasks for faster l
 <h2 id="con">Conclusion</h2>
 - Described RL algorithms used in robot manipulation <br>
 - Adjusting RL on real robot applications is still limited <br>
-- But RL in robot manipulation will have a promising future ahead <br>
+- But RL in robot manipulation will have a promising future ahead <br><br>
 
 [`Top`](#abs)
 ---
