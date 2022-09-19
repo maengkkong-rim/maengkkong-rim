@@ -51,17 +51,21 @@ Bellman equation is obeyed by all four types of value functions.
 - $G^\pi(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]$
 - $V^\ast(s)=E[G_t\|s_t=s]=E[r_t+\gamma*G_{t+1}\|s_t=s]=E[r_t+\gamma*E[G_{t+1}\|s_t=s]\|s_t=s]=E[r_t+\gamma*V^\ast(s_{t+1})\|s_t=s]$
 - $Q^\ast(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]=E[r_t+\gamma*Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
+<br><br>
+
+💡 [TAXONOMY OF RL ALGORITHMS] <br>
+A. Model-based amd Model-free <br>
+- whether the agent has the access or learns a model of the environment.
+- Model-based: having a model that allows the agent to plan ahead to predict what would happen when choosing a certain action from a range of possible ones.
+
+
+- Model-free: it is usually the case when the model is not available or the learning of such a model is very challenging. one challenging is when learning the model, the agent might introduce bias and as a result, the agent might perform extremely well with the learned model but might behave sub-optimally or even poorly with the real environment. model-free methods focus on figuring out the value functions directly from the interactions with the environment. algorithms in this class rely heavily on reward signals for learning the value functions.hence, it is important to have learning-induced reward functions. moreover, they are often easier to implement and tune hyperparameters. <br>
+
+B. Value-based and Policy-based <br>
+- Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behaviour for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
+- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of J. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. as a result, they are less sample-efficient as they only use samples collected from the latest version of the policy. when using the policy-based methods, we directly optimize what we need. this allows stability and reliability improvements.
+
 <br>
-
-💡 [TAXONOMY OF RL ALGORITHMS]
-<br>
-
-
-
-
-
-
-
 
 
 
@@ -80,8 +84,6 @@ There is still a `big gap between RL algorithms and humans` in terms of sample e
 Transfer learning[^1] tries to use experience from one set of tasks for faster learning and better performance on a new task. Transfer learning from tasks trained on simulators is particularly tempting as relatively cheap resources are needed. Another study performed `parallel learning` between simulated and real robots by introducing `additional alignment rewards` that encourage both agents in two domains to have similar distributions over visited states. <br>
 `Inverse RL` is also promising, which can solve the nightmare of designing reasonable reward functions.
 <br>
-
-[^1]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.
 
 <h2 id="con">Conclusion</h2>
 - Described RL algorithms used in robot manipulation <br>
@@ -138,3 +140,5 @@ Now a table:
 
 This is an image[^4]
 
+---
+[^1]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.
