@@ -24,7 +24,7 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 
 <h2 id="bac">Background</h2>
 💡 [KEY CONCEPTS AND TERMINOLOGY] <br><br>
-![Fig. 1](images/2022-09-14.PNG) <center>Fig 1: The agent-environment interaction</center> <br><br>
+![Fig. 1](images/2022-09-14.PNG) <center>Fig 1: The agent-environment interaction</center> <br>
 There are four main elements of a RL system: <br>
 a policy, a reward signal, a value function, and optionally a model of the environment.
 - policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states of the environment to actions to be taken when being in those states.
