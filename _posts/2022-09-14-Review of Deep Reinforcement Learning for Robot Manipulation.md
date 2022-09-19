@@ -53,7 +53,7 @@ Bellman equation is obeyed by all four types of value functions.
 - $Q^\ast(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]=E[r_t+\gamma*Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
 <br><br>
 
-💡 [TAXONOMY OF RL ALGORITHMS] <br>
+💡 [TAXONOMY OF RL ALGORITHMS] <br><br>
 A. Model-based amd Model-free <br>
 - whether the agent has the access or learns a model of the environment.
 - Model-based: having a model that allows the agent to plan ahead to predict what would happen when choosing a certain action from a range of possible ones.
@@ -61,7 +61,7 @@ A. Model-based amd Model-free <br>
 
 B. Value-based and Policy-based <br>
 - Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behavior for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
-- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of J. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. it is less sample-efficient as they only use samples collected from the latest version of the policy. we directly optimize what we need, which allows stability and reliability improvements.
+- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of $J$. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. it is less sample-efficient as they only use samples collected from the latest version of the policy. we directly optimize what we need, which allows stability and reliability improvements.
 <br>
 
 <h2 id="app">Approach</h2>
