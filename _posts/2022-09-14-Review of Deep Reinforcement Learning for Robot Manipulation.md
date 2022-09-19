@@ -24,11 +24,32 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 
 <h2 id="bac">Background</h2>
 💡 [KEY CONCEPTS AND TERMINOLOGY] <br>
-![Fig. 1](images/2022-09-14.png)
+![Fig. 1](images/2022-09-14.PNG)
 There are four main elements of a RL system: a polic, a reward signal, a value function, and optionally a model of the environment.
-- state s
+- state $s$
 - policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states of the environment to actions to be taken when being tin those states.
-- reward signal: defines the goal of a RL problem. A reward is dependent on the current state and the aciton just taken $r=R(s,a)$. The agent's ultimage goal is to maximize the cumulative reward that it receives over a long run. In general, we seek to maximize the expected return $Gt
+- reward signal: defines the goal of a RL problem. A reward is dependent on the current state and the aciton just taken $r=R(s,a)$. The agent's ultimage goal is to maximize the cumulative reward that it receives over a long run. In general, we seek to maximize the expected return $G_t=R_(t+1)+gamma*R_(t+2)+gamma^2*R_(t+3)+
+\cdots$ (discount rate $gamma\in [0 1]$)
+- model of the environment: allows inferences to be made about how the environment will behave. The dynamics of the environment is fully characterized be a distribution $p$. <br>
+
+Markov Decision Process(MDP) is a classical formalization of sequential decision making. It contains:
+- A set of possible states $\mathcal{S}$
+- A set of possible actions $\mathcal{A}$
+- A reward function $R(s,a)\in \mathcal{R}$
+- A probability distribution $p(s',r|s,a)$ of the environment <br>
+
+A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $phi$.
+- value function $V^(phi)(s)=E_(a~phi)[R(tau)|s_t=s]$
+- action-value function $Q^(phi)(s,a)=E_(a~phi)[R(tau)|s_t=s, a_t=a]$
+- optimal value function $V^(*)=max_phi E_(a~phi)[R(tau)|s_0=s]$
+- optimal action-value function $Q^(*)(s,a)=max_phi E_(a~phi)[R(tau)|s_0=s, a_0=a]$
+Given the optimal $Q^(*)(s,a)$, we can obtain the optimal action $a^(*)(s)=arg max_a Q^(*)(s,a)$ at a given state $s$, and then wer can directly construct the optimal policy $phi^(*)$. <br>
+
+Bellman equation is obeyed by all four types of value functions
+- 
+
+
+<br>
 
 💡 [TAXONOMY OF RL ALGORITHMS]
 <br>
