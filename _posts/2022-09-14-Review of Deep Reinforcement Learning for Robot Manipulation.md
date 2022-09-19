@@ -6,6 +6,7 @@ categories: paper-review
 tags: concept sample-inefficiency exploration exploitation generalization reproducibility
 ---
 ---
+<h2 id="top"></h2>
 <br>
 📝 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
@@ -20,7 +21,7 @@ tags: concept sample-inefficiency exploration exploitation generalization reprod
 <h2 id="int">Introduction</h2>
 There are some `inherent difficulties` in applying RL to solve practical robotic challenges. Our review aims to `provide our perceived picture` of using RL in the context of robot manipulation. We try to cover background knowledge, interesting research results, open problems, and provide our insights into future directions. <br>
 We decided to conduct the review starting in 2013. we start in section Ⅱ by describing key RL concepts and terminology. Section Ⅲ continues with a taxonomy of RL algorithms followed by section Ⅳ with a focus on the context of robot manipulation. We describe our perspectives about future directions in section Ⅴ and section Ⅵ concludes the review.
-<br>
+<br><br>
 
 <h2 id="bac">Background</h2>
 💡 [KEY CONCEPTS AND TERMINOLOGY] <br><br>
@@ -62,7 +63,7 @@ A. Model-based amd Model-free <br>
 B. Value-based and Policy-based <br>
 - Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behavior for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
 - Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of $J$. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. it is less sample-efficient as they only use samples collected from the latest version of the policy. we directly optimize what we need, which allows stability and reliability improvements.
-<br>
+<br><br>
 
 <h2 id="app">Approach</h2>
 Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br><br>
@@ -85,7 +86,7 @@ evolution algorithms[^1] are the least sample-efficient as they do not use gradi
 💡 [exploration and exploitation] <br><br>
 
 💡 [generalization and reproducibility] <br><br>
-<br>
+<br><br>
 
 <h2 id="res">Results and Discussion</h2>
 The strongest motivation for future developments is how to efficiently take deep RL algorithms to the real world. From our perspective, agents/robots must learn `much faster and more efficiently`. <br>
@@ -93,14 +94,15 @@ The strongest motivation for future developments is how to efficiently take deep
 There is still a `big gap between RL algorithms and humans` in terms of sample efficiency. We do not learn from scratch, and we can reuse our past knowledge to learn a new skill much more efficiently. Model-based learning approach can also help in this situation, thanks to its more potential transferability and generality. A different approach rather than approximating the dynamics is to use `multi-task learning` to reuse skills. The interesting thing in this work was learning on various tasks had better performance compared to learning in a single-task setting. <br>
 Transfer learning[^4] tries to use experience from one set of tasks for faster learning and better performance on a new task. Transfer learning from tasks trained on simulators is particularly tempting as relatively cheap resources are needed. Another study performed `parallel learning` between simulated and real robots by introducing `additional alignment rewards` that encourage both agents in two domains to have similar distributions over visited states. <br>
 `Inverse RL` is also promising, which can solve the nightmare of designing reasonable reward functions.
-<br>
+<br><br>
 
 <h2 id="con">Conclusion</h2>
 - Described RL algorithms used in robot manipulation <br>
 - Adjusting RL on real robot applications is still limited <br>
 - But RL in robot manipulation will have a promising future ahead <br><br>
 
-[`Top`](#abs)
+[`Top`](#top)
+
 ---
 [^1]: 진화 알고리즘. 생식, 돌연변이 등 생물학에서의 진화를 본뜬 메카니즘을 사용하는 어떤 개체군 기반의 조합최적화 알고리즘.[참고](http://www.aistudy.com/biology/genetic/evolutionary_algorithm.htm)
 [^2]: guide or limit search directions while training of a deep neural network based policy model. [참고](https://koreascience.kr/article/JAKO201912262463181.pdf)
