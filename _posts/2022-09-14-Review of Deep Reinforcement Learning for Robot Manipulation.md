@@ -65,6 +65,8 @@ B. Value-based and Policy-based <br>
 <br>
 
 <h2 id="app">Approach</h2>
+Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br>
+
 💡 [sample inefficiency]
 
 💡 [exploration and exploitation]
