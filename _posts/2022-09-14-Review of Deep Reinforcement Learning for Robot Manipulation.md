@@ -57,17 +57,12 @@ Bellman equation is obeyed by all four types of value functions.
 A. Model-based amd Model-free <br>
 - whether the agent has the access or learns a model of the environment.
 - Model-based: having a model that allows the agent to plan ahead to predict what would happen when choosing a certain action from a range of possible ones.
-
-
-- Model-free: it is usually the case when the model is not available or the learning of such a model is very challenging. one challenging is when learning the model, the agent might introduce bias and as a result, the agent might perform extremely well with the learned model but might behave sub-optimally or even poorly with the real environment. model-free methods focus on figuring out the value functions directly from the interactions with the environment. algorithms in this class rely heavily on reward signals for learning the value functions.hence, it is important to have learning-induced reward functions. moreover, they are often easier to implement and tune hyperparameters. <br>
+- Model-free: it is usually the case when the model is not available or the learning of such a model is very challenging. figure out the value functions directly from the interactions with the environment. rely heavily on reward signals for learning the value functions, so it is important to have learning-induced reward functions. it is often easier to implement and tune hyperparameters. <br><br>
 
 B. Value-based and Policy-based <br>
-- Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behaviour for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
-- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of J. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. as a result, they are less sample-efficient as they only use samples collected from the latest version of the policy. when using the policy-based methods, we directly optimize what we need. this allows stability and reliability improvements.
-
+- Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behavior for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
+- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of J. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. it is less sample-efficient as they only use samples collected from the latest version of the policy. we directly optimize what we need, which allows stability and reliability improvements.
 <br>
-
-
 
 <h2 id="app">Approach</h2>
 💡 [sample inefficiency]
