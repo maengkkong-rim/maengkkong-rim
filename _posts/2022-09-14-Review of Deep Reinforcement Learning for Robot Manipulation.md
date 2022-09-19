@@ -28,7 +28,7 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 There are four main elements of a RL system: <br>
 a policy, a reward signal, a value function, and optionally a model of the environment.
 - policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states of the environment to actions to be taken when being in those states.
-- reward signal: a reward is dependent on the current state and the aciton just taken $r=R(s,a)$. the agent's ultimage goal is to maximize the cumulative reward  $G_t$$=R_(t+1)+gamma*R_(t+2)+gamma^2*R_(t+3)+\cdots$ (discount rate $gamma\in [0 1]$)
+- reward signal: a reward is dependent on the current state and the aciton just taken $r=R(s,a)$. the agent's ultimage goal is to maximize the cumulative reward  $G_{t}=R_{t+1}+\gamma*R_(t+2)+gamma^2*R_(t+3)+\cdots$ (discount rate $gamma\in [0 1]$)
 - model of the environment: allows inferences to be made about how the environment will behave. The dynamics of the environment is fully characterized be a distribution $p$. <br><br>
 
 Markov Decision Process(MDP) is a classical formalization of sequential decision making. It contains:
