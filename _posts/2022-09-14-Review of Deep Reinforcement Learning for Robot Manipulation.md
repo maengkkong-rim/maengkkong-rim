@@ -65,7 +65,7 @@ B. Value-based and Policy-based <br>
 <br>
 
 <h2 id="app">Approach</h2>
-Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br>
+Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br><br>
 
 💡 [sample inefficiency] <br><br>
 There are multiple causes for the problem.
@@ -100,6 +100,7 @@ Transfer learning[^4] tries to use experience from one set of tasks for faster l
 - Adjusting RL on real robot applications is still limited <br>
 - But RL in robot manipulation will have a promising future ahead <br>
 
+[`Top`](#abs)
 ---
 [^1]: 진화 알고리즘. 생식, 돌연변이 등 생물학에서의 진화를 본뜬 메카니즘을 사용하는 어떤 개체군 기반의 조합최적화 알고리즘.[참고](http://www.aistudy.com/biology/genetic/evolutionary_algorithm.htm)
 [^2]: guide or limit search directions while training of a deep neural network based policy model. [참고](https://koreascience.kr/article/JAKO201912262463181.pdf)
