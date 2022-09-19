@@ -105,5 +105,5 @@ Transfer learning[^4] tries to use experience from one set of tasks for faster l
 ---
 [^1]: 진화 알고리즘. 생식, 돌연변이 등 생물학에서의 진화를 본뜬 메카니즘을 사용하는 어떤 개체군 기반의 조합최적화 알고리즘.[참고](http://www.aistudy.com/biology/genetic/evolutionary_algorithm.htm)
 [^2]: guide or limit search directions while training of a deep neural network based policy model. [참고](https://koreascience.kr/article/JAKO201912262463181.pdf)
-[^3]: reference [15] 참고.
+[^3]: reference [15].
 [^4]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.[참고](https://dacon.io/forum/405988)
