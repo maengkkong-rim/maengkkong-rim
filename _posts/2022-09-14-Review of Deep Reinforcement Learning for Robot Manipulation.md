@@ -1,6 +1,7 @@
 ---
 layout: post
 author: jnr
+use_math : true
 categories: paper-review
 tags: apple test coding
 ---
@@ -22,11 +23,24 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 <br>
 
 <h2 id="bac">Background</h2>
-💡 [KEY CONCEPTS AND TERMINOLOGY]
+💡 [KEY CONCEPTS AND TERMINOLOGY] <br>
 ![Fig. 1](images/2022-09-14.png)
+There are four main elements of a RL system: a polic, a reward signal, a value function, and optionally a model of the environment.
+- state s
+- policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states of the environment to actions to be taken when being tin those states.
+- reward signal: defines the goal of a RL problem. A reward is dependent on the current state and the aciton just taken $r=R(s,a)$. The agent's ultimage goal is to maximize the cumulative reward that it receives over a long run. In general, we seek to maximize the expected return $Gt
 
 💡 [TAXONOMY OF RL ALGORITHMS]
 <br>
+
+
+
+
+
+
+
+
+
 
 <h2 id="app">Approach</h2>
 💡 [sample inefficiency]
@@ -40,11 +54,11 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 The strongest motivation for future developments is how to efficiently take deep RL algorithms to the real world. From our perspective, agents/robots must learn `much faster and more efficiently`. <br>
 `Model-based learning` has the biggest advantage of being sample-efficient and there existed interesting research in this direction to predict the future. <br>
 There is still a `big gap between RL algorithms and humans` in terms of sample efficiency. We do not learn from scratch, and we can reuse our past knowledge to learn a new skill much more efficiently. Model-based learning approach can also help in this situation, thanks to its more potential transferability and generality. A different approach rather than approximating the dynamics is to use `multi-task learning` to reuse skills. The interesting thing in this work was learning on various tasks had better performance compared to learning in a single-task setting. <br>
-Transfer learning[^01] tries to use experience from one set of tasks for faster learning and better performance on a new task. Transfer learning from tasks trained on simulators is particularly tempting as relatively cheap resources are needed. Another study performed `parallel learning` between simulated and real robots by introducing `additional alignment rewards` that encourage both agents in two domains to have similar distributions over visited states. <br>
+Transfer learning[^1] tries to use experience from one set of tasks for faster learning and better performance on a new task. Transfer learning from tasks trained on simulators is particularly tempting as relatively cheap resources are needed. Another study performed `parallel learning` between simulated and real robots by introducing `additional alignment rewards` that encourage both agents in two domains to have similar distributions over visited states. <br>
 `Inverse RL` is also promising, which can solve the nightmare of designing reasonable reward functions.
 <br>
 
-[^01]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.
+[^1]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.
 
 <h2 id="con">Conclusion</h2>
 - Described RL algorithms used in robot manipulation <br>
