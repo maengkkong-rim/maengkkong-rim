@@ -23,6 +23,7 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 
 <h2 id="bac">Background</h2>
 💡 [KEY CONCEPTS AND TERMINOLOGY]
+![Fig. 1](/images/2022-09-01.png){: width="50%" height="50%"}
 
 💡 [TAXONOMY OF RL ALGORITHMS]
 <br>
