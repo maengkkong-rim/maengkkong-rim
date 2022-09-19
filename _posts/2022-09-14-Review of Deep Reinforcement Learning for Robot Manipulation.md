@@ -6,7 +6,7 @@ categories: paper-review
 tags: concept sample-inefficiency exploration exploitation generalization reproducibility
 ---
 ---
-<h2 id="top"></h2>
+<h2 id="top"></h2> <br>
 📝 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
