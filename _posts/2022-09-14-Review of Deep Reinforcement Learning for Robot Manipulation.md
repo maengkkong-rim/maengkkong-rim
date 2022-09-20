@@ -40,14 +40,14 @@ It contains:
 
 A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $\pi$.
 - value function $V^\pi(s)=E_{a\~\pi}[R(\tau)\|s_t=s]$
-- action-value function $Q^\pi(s,a)=E_{a~\pi}[R(\tau)\|s_t=s, a_t=a]$
-- optimal value function 
+- action-value function $Q^\pi(s,a)=E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
+- optimal value function $\~$
 - optimal action-value function 
 
 Given the optimal $Q^{*}(s,a)$, we can obtain the optimal action $a^(*)(s)=arg max_a Q^(*)(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\phi^{*}$. <br>
 
 Bellman equation is obeyed by all four types of value functions.
-- $V^\pi(s)=E[G_t\|s_t=s]=E[r_t+\gamma*G_{t+1}\|s_t=s]=E[r_t+\gamma*E[G_{t+1}\|s_t=s]\|s_t=s]=E[r_t+\gamma*V^\pi(s_{t+1})\|s_t=s]$
+- $V^\pi(s)=E[G_t\|s_t=s]$$=E[r_t+\gamma*G_{t+1}\|s_t=s]=E[r_t+\gamma*E[G_{t+1}\|s_t=s]\|s_t=s]=E[r_t+\gamma*V^\pi(s_{t+1})\|s_t=s]$
 - $G^\pi(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]$
 - $V^\ast(s)=E[G_t\|s_t=s]=E[r_t+\gamma*G_{t+1}\|s_t=s]=E[r_t+\gamma*E[G_{t+1}\|s_t=s]\|s_t=s]=E[r_t+\gamma*V^\ast(s_{t+1})\|s_t=s]$
 - $Q^\ast(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]=E[r_t+\gamma*Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
