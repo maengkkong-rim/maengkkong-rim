@@ -28,7 +28,7 @@ We decided to conduct the review starting in 2013. we start in section Ⅱ by de
 There are four main elements of a RL system: <br>
 a policy, a reward signal, a value function, and optionally a model of the environment.
 - policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states to actions to be taken when being in those states.
-- reward signal: a reward is dependent on the current state and the action $r=R(s,a)$. the agent's ultimate goal is to maximize the cumulative reward  $G_t=R_{t+1} + \gamma*R_(t+2)+\gamma^2*R_(t+3)+\cdots$ (discount rate $\gamma\in[0 1]$)
+- reward signal: a reward is dependent on the current state and the action $r=R(s,a)$. the agent's ultimate goal is to maximize the cumulative reward  $G_t=R_{t+1} + \gamma*R_{t+2}+\gamma^2*R_{t+3}+\cdots$ (discount rate $\gamma\in[0  1]$)
 - model of the environment: allows inferences about how the environment will behave. the dynamics of the environment is fully characterized by a distribution $p$. <br><br>
 
 Markov Decision Process(MDP) is a classical formalization of sequential decision making. <br>
@@ -47,7 +47,7 @@ A value function specifies what is good in the long run of a state $s$ or a stat
 Given the optimal $Q^{*}(s,a)$, we can obtain the optimal action $a^(*)(s)=arg max_a Q^(*)(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\phi^{*}$. <br>
 
 Bellman equation[^1] is obeyed by all four types of value functions.
-- $V^\pi(s)=E[r_t+\gammaV^\pi(s_{t+1})\|s_t=s]$
+- $V^\pi(s)=E[r_t+\gamma*V^\pi(s_{t+1})\|s_t=s]$
 - $G^\pi(s,a)=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]$
 - $V^\ast(s)=E[r_t+\gamma*V^\ast(s_{t+1})\|s_t=s]$
 - $Q^\ast(s,a)=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
