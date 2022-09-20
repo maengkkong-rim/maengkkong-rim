@@ -67,7 +67,7 @@ B. Value-based and Policy-based <br>
 <h2 id="app">Approach</h2>
 Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br><br>
 
-💡 [sample inefficiency] <br><br>
+💡 [sample inefficiency] <br>
 There are multiple causes for the problem.
 1. many algorithms try to learn to perform a task from `scratch`, therefore, they would need a lot of data to learn.
 2. algorithms are still `not good enough at exploiting` useful information from current data.
@@ -76,15 +76,15 @@ There are multiple causes for the problem.
 Evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimization, but they might have comparable performance. Policy gradient methods are next in terms of sample efficiency, followed by methods that use replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimization to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3]. <br>
 
 In order to be more data-efficient, we need to `collect more data` and use the data more efficiently. One way to have more data is `using multiple robots` to collect data simultaneously. Real data can also be augmented with `synthetic data`, possibly from simulators. In this approach, the `gap` between synthetic data and real robot data `needs to be reduced`. We can use deep learning architecture[^4], progressive networks[^5], and so on[^6]. In robotics, data is `specific to certain robots and configurations`. It will be very useful if we have a mechanism to `transform data` so that it can be widely distributed and used in multiple platforms and configurations. Finally, we will need `novel algorithms` that can use data more `efficiently`. `Model-based` approach might be one of the most potential ways to unlock sample efficiency.
-<br><br><br>
+<br><br>
 
-💡 [exploration and exploitation] <br><br>
+💡 [exploration and exploitation]
 - exploration: give more knowledge about the environment, which can lead to better future decisions.
 - exploitation: choose the best action to take given the current information.
 
 A balance between exploration and exploitation is required. Using $\epsilon$-greedy to balance exploration and exploitation, the agent will either take random action at the probability $\epsilon$ or follow the action that maximized the Q-value with the probability $1-\epsilon$. Vanilla policy gradient method[^7], Trust Region Policy Optimization(TPRO)[^8], and Proximal Policy Optimization(PPO)[^9] explore by sampling actions according to the latest version of its stochastic policy. DDPG[^10] trains a deterministic policy in an off-policy way with noise being added to the action at training time. Soft Actor-Critic(SAC)[^11] explores with entropy regularization. <br>
 
-`$\epsilon$-greedy` is one of the most commonly used methods for exploration, but it `treats all actions equivalently`. So, it is unguided, too naive[^12], and does not explore areas with promising actions.
+$\epsilon$-greedy is one of the most commonly used methods for exploration, but it `treats all actions equivalently`. So, it is unguided, too naive[^12], and does not explore areas with promising actions.
 For `on-policy` algorithms, the scale of randomness is reduced due to the updated policy rule favoring more exploitation during training. As a result, the policy might be `trapped in local optima`.
 For `deterministic policies`, `noise` is added to their actions during training time, and the scale of noise might be reduced to get more high-quality training time. This approach will become `insufficient` when facing `sparse and deceptive reward` problem.
 We also `lack a useful benchmark` that can be used to evaluate the performance of different approaches for exploration. Also, the `performance` of exploration strategies `vary among environments and configurations`, making it hard to quantify the true improvement.
@@ -92,7 +92,8 @@ And, exploration which is facing uncertainty is very `unsafe for fragile robots`
 <br><br><br>
 
 💡 [generalization and reproducibility] <br><br>
-
+- generalization: cri
+- reproducibility : underestimated issue. It is not easy to implementation details were either missing or incomplete.
 
 
 
