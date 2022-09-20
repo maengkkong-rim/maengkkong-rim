@@ -3,7 +3,7 @@ layout: post
 author: jnr
 use_math : true
 categories: paper-review
-tags:
+tags: robotic-vehicle pedestrian social-norm
 ---
 
 ---
