@@ -44,7 +44,7 @@ A value function specifies what is good in the long run of a state $s$ or a stat
 - optimal value function $V^\ast(s)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s]$
 - optimal action-value function $Q^\ast(s,a)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
 
-Given the optimal $Q^{*}(s,a)$, we can obtain the optimal action $a^(*)(s)=arg max_a Q^(*)(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\phi^{*}$. <br>
+Given the optimal $Q^\ast(s,a)$, we can obtain the optimal action $a^\ast(s)=arg max_a Q^\ast(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\pi^\ast$. <br>
 
 Bellman equation[^1] is obeyed by all four types of value functions.
 - $V^\pi(s)=E[r_t+\gamma*V^\pi(s_{t+1})\|s_t=s]$
