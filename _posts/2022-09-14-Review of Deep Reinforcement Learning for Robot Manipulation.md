@@ -121,11 +121,11 @@ Transfer learning[^19] tries to use experience from one set of tasks for faster 
 [^4]: reference [21].
 [^5]: reference [18].
 [^6]: reference [20].
-[^7]: 
-[^8]: 
-[^9]: 
-[^10]: 
-[^11]: 
+[^7]: [참고](https://medium.com/analytics-vidhya/a-deep-dive-into-vanilla-policy-gradients-3a79a95f3334)
+[^8]: 기존의 Poclicy gradient와 비슷하지만 monotonic improvement를 보장하면서도 policy를 iteratively optimize하는 방식. 직전 policy와는 차이가 적도록 policy를 업데이트.
+[^9]: TPRO보다 more general, much simpler, and have better sample complexity. 성능을 떨어뜨리지 않으면서도 가능한 큰 step으로 policy를 업데이트. constraint 없이 clipping을 사용하여 update 정도를 조정.
+[^10]: replay buffer를 사용하여 데이터를 저장하고 off-policy처럼 동작. targer network를 두어 학습시 정답을 잠시 보관.
+[^11]: optimize a stochastic policy in an off-policy. introduce the entropy-regularized RL setting. [참고](https://spinningup.openai.com/en/latest/algorithms/sac.html#quick-facts)
 [^12]: 순진무구한.
 [^13]: 일반화. 학습된 환경의 제약에서 벗어나 일반적인 성능을 가지는 것. [참고](http://dmqm.korea.ac.kr/activity/seminar/314)
 [^14]:
