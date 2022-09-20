@@ -13,12 +13,15 @@ tags:
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
 
 <h2 id="abs">Abstract</h2>
-- Address the current status of RL algorithms <br>
+- For robotic vehicles to navigate safely and efficiently in pedestrian-rich environments, it is important to model subtle human behaviors and navigation rules. <br>
+- However, existing works often do not generalize well since the feature values can vary from person to person, even run to run. <br>
+- it is straightforward to specify what not to do than what to do.
+- using deep RL, this work develops a time-efficient naviagation policy that respects common social norms.
+- the proposed method is shown to enable fully autonomous navigation of a robotic vehicle moving at human walking speed in an environment with many pedestrians.
 <br>
 
 <h2 id="int">Introduction</h2>
-There are some `inherent difficulties` in applying RL to solve practical robotic challenges. Our review aims to `provide our perceived picture` of using RL in the context of robot manipulation. We try to cover background knowledge, interesting research results, open problems, and provide our insights into future directions. <br>
-We decided to conduct the review starting in 2013. we start in section Ⅱ by describing key RL concepts and terminology. Section Ⅲ continues with a taxonomy of RL algorithms followed by section Ⅳ with a focus on the context of robot manipulation. We describe our perspectives about future directions in section Ⅴ and section Ⅵ concludes the review.
+There
 <br><br>
 
 <h2 id="bac">Background</h2>
