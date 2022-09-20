@@ -15,9 +15,9 @@ tags:
 <h2 id="abs">Abstract</h2>
 - For robotic vehicles to navigate safely and efficiently in pedestrian-rich environments, it is important to model subtle human behaviors and navigation rules. <br>
 - However, existing works often do not generalize well since the feature values can vary from person to person, even run to run. <br>
-- it is straightforward to specify what not to do than what to do.
-- using deep RL, this work develops a time-efficient naviagation policy that respects common social norms.
-- the proposed method is shown to enable fully autonomous navigation of a robotic vehicle moving at human walking speed in an environment with many pedestrians.
+- it is straightforward to specify what not to do. <br>
+- Using deep RL, this work develops a time-efficient navigation policy that respects common social norms. <br>
+- The proposed method is shown to enable fully autonomous navigation of a robotic vehicle moving at human walking speed in an environment with many pedestrians. <br>
 <br>
 
 <h2 id="int">Introduction</h2>
