@@ -1,4 +1,3 @@
-<h2 id="top"></h2> 
 ---
 layout: post
 author: jnr
@@ -7,7 +6,7 @@ categories: paper-review
 tags: concept sample-inefficiency exploration exploitation generalization reproducibility
 ---
 ---
-<br>
+<h2 id="top"></h2><br>
 📝 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
@@ -74,17 +73,10 @@ There are multiple causes for the problem.
 2. algorithms are still `not good enough at exploiting` useful information from current data.
 3. data collection in robotics is often very `time-consuming`.
 
-Evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimixation, but they might have comparable performance. Policy gradient methods is next in terms of sample-efficiency, followed by methods that uses replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimixation to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3]. <br>
+Evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimization, but they might have comparable performance. Policy gradient methods are next in terms of sample efficiency, followed by methods that use replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimization to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3]. <br>
 
-In order to be more data-efficient, we need to collect more data and use the data that we currently have more efficiently. One way to have more data is using multiple robots to collect data simulataneously. Real data can also be augmented with synthetic data, possibly from simulators. In this approach, the gap between synthetic data and real robot data needs to be reduced so that the simulated data can be useful.
-
-
-
-
-
-
-
-
+In order to be more data-efficient, we need to `collect more data` and use the data more efficiently. One way to have more data is `using multiple robots` to collect data simultaneously. Real data can also be augmented with `synthetic data`, possibly from simulators. In this approach, the `gap` between synthetic data and real robot data `needs to be reduced`. We can use deep learning architecture[^4], progressive networks[^5], and so on[^6]. In robotics, data is `specific to certain robots and configurations`. It will be very useful if we have a mechanism to `transform data` so that it can be widely distributed and used in multiple platforms and configurations. Finally, we will need `novel algorithms` that can use data more `efficiently`. `Model-based` approach might be one of the most potential ways to unlock sample efficiency.
+<br><br><br>
 
 💡 [exploration and exploitation] <br><br>
 
@@ -110,4 +102,7 @@ Transfer learning[^4] tries to use experience from one set of tasks for faster l
 [^1]: 진화 알고리즘. 생식, 돌연변이 등 생물학에서의 진화를 본뜬 메카니즘을 사용하는 어떤 개체군 기반의 조합최적화 알고리즘.[참고](http://www.aistudy.com/biology/genetic/evolutionary_algorithm.htm)
 [^2]: guide or limit search directions while training of a deep neural network based policy model. [참고](https://koreascience.kr/article/JAKO201912262463181.pdf)
 [^3]: reference [15].
+[^4]: reference [21].
+[^5]: reference [18].
+[^6]: reference [20].
 [^4]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.[참고](https://dacon.io/forum/405988)
