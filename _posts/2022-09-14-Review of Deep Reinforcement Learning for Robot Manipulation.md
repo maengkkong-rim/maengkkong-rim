@@ -79,8 +79,29 @@ In order to be more data-efficient, we need to `collect more data` and use the d
 <br><br><br>
 
 💡 [exploration and exploitation] <br><br>
+- exploration: give more knowledge about the environment, which can lead to better future decisions.
+- exploitation: choose the best action to take given the current information.
+
+A balance between exploration and exploitation is required. Using $\epsilon$-greedy to balance exploration and exploitation, the agent will either take random action at the probability $\epsilon$ or follow the action that maximized the Q-value with the probability $1-\epsilon$. Vanilla policy gradient method[^7], Trust Region Policy Optimization(TPRO)[^8], and Proximal Policy Optimization(PPO)[^9] explore by sampling actions according to the latest version of its stochastic policy. DDPG[^10] trains a deterministic policy in an off-policy way with noise being added to the action at training time. Soft Actor-Critic(SAC)[^11] explores with entropy regularization. <br>
+
+`$\epsilon$-greedy` is one of the most commonly used methods for exploration, but it `treats all actions equivalently`. So, it is unguided, too naive[^12], and does not explore areas with promising actions.
+For `on-policy` algorithms, the scale of randomness is reduced due to the updated policy rule favoring more exploitation during training. As a result, the policy might be `trapped in local optima`.
+For `deterministic policies`, `noise` is added to their actions during training time, and the scale of noise might be reduced to get more high-quality training time. This approach will become `insufficient` when facing `sparse and deceptive reward` problem.
+We also `lack a useful benchmark` that can be used to evaluate the performance of different approaches for exploration. Also, the `performance` of exploration strategies `vary among environments and configurations`, making it hard to quantify the true improvement.
+And, exploration which is facing uncertainty is very `unsafe for fragile robots`.
+<br><br><br>
 
 💡 [generalization and reproducibility] <br><br>
+
+
+
+
+
+
+
+
+
+
 <br><br>
 
 <h2 id="res">Results and Discussion</h2>
@@ -105,4 +126,10 @@ Transfer learning[^4] tries to use experience from one set of tasks for faster l
 [^4]: reference [21].
 [^5]: reference [18].
 [^6]: reference [20].
+[^7]: 
+[^8]: 
+[^9]: 
+[^10]: 
+[^11]: 
+[^12]: 순진무구한.
 [^4]: 전이학습. 한 문제를 해결하고자 얻은 지식과 정보를 다른 문제를 푸는데 사용하는 방식. 특히 컴퓨터 비전의 영역에서 전이 학습으로 수행된 모델들이 높은 성능을 보여, 많이 사용되고 있음.[참고](https://dacon.io/forum/405988)
