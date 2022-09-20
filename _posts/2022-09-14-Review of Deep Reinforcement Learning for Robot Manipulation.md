@@ -42,7 +42,7 @@ A value function specifies what is good in the long run of a state $s$ or a stat
 - value function $V^\pi(s)=E_{a\~\pi}[R(\tau)\|s_t=s]$
 - action-value function $Q^\pi(s,a)=E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
 - optimal value function $V^\ast(s)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s]$
-- optimal action-value function $Q^\ast(s,a)=max_\piE_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
+- optimal action-value function $Q^\ast(s,a)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
 
 Given the optimal $Q^{*}(s,a)$, we can obtain the optimal action $a^(*)(s)=arg max_a Q^(*)(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\phi^{*}$. <br>
 
