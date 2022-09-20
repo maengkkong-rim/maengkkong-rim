@@ -2,6 +2,7 @@
 layout: post
 author: jnr
 use_math : true
+published: true
 categories: paper-review
 tags: robotic-vehicle pedestrian social-norm
 ---
