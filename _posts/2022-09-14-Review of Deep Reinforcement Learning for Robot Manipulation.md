@@ -1,3 +1,4 @@
+<h2 id="top"></h2> 
 ---
 layout: post
 author: jnr
@@ -6,7 +7,7 @@ categories: paper-review
 tags: concept sample-inefficiency exploration exploitation generalization reproducibility
 ---
 ---
-<h2 id="top"></h2> <br>
+<br>
 📝 H. Nguyen and H. La, "Review of deep reinforcement learning for robot manipulation," in Proc. 3rd IEEE Int. Conf. Robot. Comput. (IRC), Naples, Italy, Feb. 2019, pp. 590–595. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8675643)<br>
 
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
@@ -73,7 +74,10 @@ There are multiple causes for the problem.
 2. algorithms are still `not good enough at exploiting` useful information from current data.
 3. data collection in robotics is often very `time-consuming`.
 
-evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimixation, but they might have comparable performance. Policy gradient methods is next in terms of sample-efficiency, followed by methods that uses replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimixation to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3].
+Evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimixation, but they might have comparable performance. Policy gradient methods is next in terms of sample-efficiency, followed by methods that uses replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimixation to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3]. <br>
+
+In order to be more data-efficient, we need to collect more data and use the data that we currently have more efficiently. One way to have more data is using multiple robots to collect data simulataneously. Real data can also be augmented with synthetic data, possibly from simulators. In this approach, the gap between synthetic data and real robot data needs to be reduced so that the simulated data can be useful.
+
 
 
 
