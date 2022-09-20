@@ -39,10 +39,10 @@ It contains:
 - a probability distribution $p(s',r\|s,a)$ of the environment <br><br>
 
 A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $\pi$.
-- value function $V^\pi(s)=E_{a\~\pi}[R(\tau)\|s_t=s]$
-- action-value function $Q^\pi(s,a)=E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
-- optimal value function $V^\ast(s)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s]$
-- optimal action-value function $Q^\ast(s,a)=max_{\pi}E_{a\~\pi}[R(\tau)\|s_t=s, a_t=a]$
+- value function $V^\pi(s)=E_{a\sim\pi}[R(\tau)\|s_t=s]$
+- action-value function $Q^\pi(s,a)=E_{a\sim\pi}[R(\tau)\|s_t=s, a_t=a]$
+- optimal value function $V^\ast(s)=max_{\pi}E_{a\sim\pi}[R(\tau)\|s_t=s]$
+- optimal action-value function $Q^\ast(s,a)=max_{\pi}E_{a\sim\pi}[R(\tau)\|s_t=s, a_t=a]$
 
 Given the optimal $Q^\ast(s,a)$, we can obtain the optimal action $a^\ast(s)=arg max_a Q^\ast(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\pi^\ast$. <br>
 
