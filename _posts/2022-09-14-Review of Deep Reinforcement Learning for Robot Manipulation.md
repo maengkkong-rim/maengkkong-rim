@@ -53,7 +53,7 @@ Bellman equation is obeyed by all four types of value functions.
 - $Q^\ast(s,a)=E[G_t\|s_t=s, a_t=a]=E[r_t+\gamma*G_{t+1}\|s_t=s, a_t=a]=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]=E[r_t+\gamma*Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
 <br><br><br>
 
-💡 [TAXONOMY OF RL ALGORITHMS] <br><br>
+💡 [TAXONOMY OF RL ALGORITHMS] <br>
 A. Model-based amd Model-free <br>
 - whether the agent has the access or learns a model of the environment.
 - Model-based: having a model that allows the agent to plan ahead to predict what would happen when choosing a certain action from a range of possible ones.
@@ -65,7 +65,7 @@ B. Value-based and Policy-based <br>
 <br><br>
 
 <h2 id="app">Approach</h2>
-Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br><br>
+Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br>
 
 💡 [sample inefficiency] <br>
 There are multiple causes for the problem.
@@ -76,7 +76,7 @@ There are multiple causes for the problem.
 Evolution algorithms[^1] are the least sample-efficient as they do not use gradient for optimization, but they might have comparable performance. Policy gradient methods are next in terms of sample efficiency, followed by methods that use replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^2] is very data-efficient as it used trajectory optimization to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^3]. <br>
 
 In order to be more data-efficient, we need to `collect more data` and use the data more efficiently. One way to have more data is `using multiple robots` to collect data simultaneously. Real data can also be augmented with `synthetic data`, possibly from simulators. In this approach, the `gap` between synthetic data and real robot data `needs to be reduced`. We can use deep learning architecture[^4], progressive networks[^5], and so on[^6]. In robotics, data is `specific to certain robots and configurations`. It will be very useful if we have a mechanism to `transform data` so that it can be widely distributed and used in multiple platforms and configurations. Finally, we will need `novel algorithms` that can use data more `efficiently`. `Model-based` approach might be one of the most potential ways to unlock sample efficiency.
-<br><br>
+<br><br><br>
 
 💡 [exploration and exploitation]
 - exploration: give more knowledge about the environment, which can lead to better future decisions.
@@ -91,7 +91,7 @@ We also `lack a useful benchmark` that can be used to evaluate the performance o
 And, exploration which is facing uncertainty is very `unsafe for fragile robots`.
 <br><br><br>
 
-💡 [generalization and reproducibility] <br><br>
+💡 [generalization and reproducibility]
 - generalization: cri
 - reproducibility : underestimated issue. It is not easy to implementation details were either missing or incomplete.
 
