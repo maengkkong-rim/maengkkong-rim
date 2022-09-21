@@ -91,7 +91,7 @@ As long as training converges, the penalty sets' `size does not have a major eff
 We trained two SA-CADRL policies to learn left-handed and right-handed norms starting from the same initialization, the results of which are shown in Fig. 7. The learned policies exhibited similar qualitative behaviors as shown in Fig. 3. Note that training is performed on randomly generated test cases, not validation test cases. <br>
 
 ![Fig. 7](images/2022-09-21-8.PNG) <center>Fig 7: SA-CADRL policies exhibiting socially aware behaviors</center>
-<br><br><br>
+<br><br>
 
 💡 [training a multiagent value network] <br>
 The CADRL work trained a two-agent network with three fully connected hidden layers, and use a minimax scheme for scaling up to multiagent(n>2) scenarios. Since training was solely performed on a two-agent system, it was difficult to encode/induce higher order behaviors, such as accounting for the relations between nearby agents. This work addresses this problem by developing a method that allows for training on multiagent scenarios directly.
