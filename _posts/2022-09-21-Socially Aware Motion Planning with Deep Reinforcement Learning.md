@@ -120,7 +120,7 @@ We currently do `not have an effective benchmark` to evaluate the generalization
 Combating reproducibility is challenging for the continuous environment such as in robots due to a `higher instability`. Besides the need for more robust RL algorithms to hyperparameters, we would possibly need to agree on proper experimental methodologies and proper evaluation methods and metrics to address the problem. Effective tools for documenting changes during experiment setup and `standard set of environments` are also useful for improving reproducibility.
 <br><br>
 
-h2 id="exp">Experiments</h2>
+<h2 id="exp">Experiments</h2>
 
 <h2 id="res">Results and Discussion</h2>
 The strongest motivation for future developments is how to efficiently take deep RL algorithms to the real world. From our perspective, agents/robots must learn `much faster and more efficiently`. <br>
