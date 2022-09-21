@@ -68,14 +68,19 @@ It was interesting to observe that while `no behavioral rules` were imposed in t
 The following presents the socially aware multiagent collision avoidance with deep RL algorithm(SA-CADRL). We first describe a strategy for shaping framework and then generalize the method to multiagent scenarios. <br><br>
 
 💡 [inducing social norms] <br>
-There are multiple causes for the problem.
-1. many algorithms try to learn to perform a task from `scratch`, therefore, they would need a lot of data to learn.
-2. algorithms are still `not good enough at exploiting` useful information from current data.
-3. data collection in robotics is often very `time-consuming`.
+each agent's state is parameterized as:
+- $s=[d_g, v_{pref}, v_x, v_y, \psi, r]$
+- $s^o=[\tilde{p_x}, \tilde{p_y}, \tilde{v_x}, \tilde{v_y}, \tilde{r}, \tilde{d_a}, \tilde{phi}, \tilde{b_{on}}]$
+- $d_g$: the agent's distance to goal. $d_g=\lVert{P_g-P}\rVert_2$
+- $\tilde{d_a}$: the distance to the other agent. $\tilde{d_a}=\lVert{P-\tilde{P}}\rVert_2$
+- $\phi$: the other agent's heading direction. $\phi=tan^{-1}(\tilde{v_y}/\tilde{v_x})
+- $b_{on}$: a binary flag indicating whether the other agent is real or virtual
 
-Evolution algorithms[^2] are the least sample-efficient as they do not use gradient for optimization, but they might have comparable performance. Policy gradient methods are next in terms of sample efficiency, followed by methods that use replay buffer to estimate Q-values. Model-based algorithms are taking the lead in terms of data efficiency as they try to derive a model of the environment and use that model for training the policy instead of data from real interactions. Guided Policy Search[^3] is very data-efficient as it used trajectory optimization to direct policy learning and avoid poor local optima. The current winner is model-based "shallow" algorithm[^4]. <br>
 
-In order to be more data-efficient, we need to `collect more data` and use the data more efficiently. One way to have more data is `using multiple robots` to collect data simultaneously. Real data can also be augmented with `synthetic data`, possibly from simulators. In this approach, the `gap` between synthetic data and real robot data `needs to be reduced`. We can use deep learning architecture[^5], progressive networks[^6], and so on[^7]. In robotics, data is `specific to certain robots and configurations`. It will be very useful if we have a mechanism to `transform data` so that it can be widely distributed and used in multiple platforms and configurations. Finally, we will need `novel algorithms` that can use data more `efficiently`. `Model-based` approach might be one of the most potential ways to unlock sample efficiency.
+
+
+
+
 <br><br><br>
 
 💡 [exploration and exploitation]
