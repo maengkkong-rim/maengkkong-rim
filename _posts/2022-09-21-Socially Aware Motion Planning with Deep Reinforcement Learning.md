@@ -76,7 +76,7 @@ each agent's state is parameterized as:
 - $\phi$: the other agent's heading direction. $\phi=tan^{-1}(\tilde{v_y}/\tilde{v_x})$
 - $b_{on}$: a binary flag indicating whether the other agent is real or virtual <br>
 
-To induce a particular norm, a small bias can be introduced in the RL training process in favor of one set of behaviors over others. The advantage of this approach is that violations of a particular social norm are usually easy to specify; and this specification need not be precise. This is because the addition of a penalty breaks the symmetry in the collision avoidance problem, thereby favoring behaviors respecting the desired social norm. This work uses the following specification of a reward function $R_{norm}$(Fig. 5) for inducing the right-handed rules. An illustration of these three penalty sets is provided in Fig. 6. <br>
+To `induce a particular norm`, a `small bias` can be introduced in the RL training process in favor of one set of behaviors over others. The advantage of this approach is that `violations` of a particular social norm are usually `easy to specify`; and this specification need not be precise. This is because the addition of a penalty breaks the symmetry in the collision avoidance problem, thereby favoring behaviors respecting the desired social norm. This work uses the following specification of a reward function $R_{norm}$(Fig. 5) for inducing the right-handed rules. An illustration of these three penalty sets is provided in Fig. 6. <br>
 
 ![Fig. 5](images/2022-09-21-6.PNG) <center>Fig 5: specification of a reward function</center> <br>
 ![Fig. 6](images/2022-09-21-7.PNG) <center>Fig 6: norm inducing reward function</center>
@@ -87,8 +87,11 @@ To induce a particular norm, a small bias can be introduced in the RL training p
 - $\tilde{\phi}-\psi$: the angle difference($[-\pi, \pi]$)
 - $\mathcal{S}_{norm}$: the parameters defining the penalty set. affect the rate of convergence
 
-As long as training converges, the penalty sets' size does not have a major effect on the learned policy. This is expected because the desired behaviors are not in the penalty set. (9)-(12) in Fig. 5 can be modified to induce left-handed rules.
+As long as training converges, the penalty sets' `size does not have a major effect on the learned policy`. This is expected because the desired behaviors are not in the penalty set. (9)-(12) in Fig. 5 can be modified to induce left-handed rules.
 We trained two SA-CADRL policies to learn left-handed and right-handed norms starting from the same initialization, the results of which are shown in Fig. 7. The learned policies exhibited similar qualitative behaviors as shown in Fig. 3. Note that training is performed on randomly generated test cases, not validation test cases.
+
+![Fig. 7](images/2022-09-21-8.PNG) <center>Fig 7: SA-CADRL policies exhibiting socially aware behaviors</center>
+
 <br><br><br>
 
 
