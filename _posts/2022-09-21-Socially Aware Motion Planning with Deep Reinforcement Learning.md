@@ -49,13 +49,13 @@ The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, th
 Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal, (5). The optimal policy can be retrieved from the value function, (6).(Fig. 2) <br>
 
 ![Fig. 2](images/2022-09-21-2.PNG)
-![Fig. 3](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
+![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
 
 A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`) to `characterize and induce socially aware behaviors in multiagent systems`.
 <br><br><br>
 
 💡 [characterization of social norms] <br>
-Rather than trrying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions.
+Rather than trrying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation through using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). 
 
 
 
