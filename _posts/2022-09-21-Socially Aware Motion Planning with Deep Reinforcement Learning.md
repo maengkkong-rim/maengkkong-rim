@@ -113,23 +113,23 @@ Transfer learning[^20] tries to use experience from one set of tasks for faster 
 <br><br>
 
 <h2 id="con">Conclusion</h2>
-- Described RL algorithms used in robot manipulation <br>
-- Adjusting RL on real robot applications is still limited <br>
-- But RL in robot manipulation will have a promising future ahead <br><br>
+- This work presented SA-CADRL, a multiagent collision avoidance algorithm that considers and exhibits socially compliant behaviors. In particular, in a RL framework, a pair of simulated agents navigate around each other to learn a policy that respect human navigation norms. This approach is further generalized to multiagent(n>2) scenarios through the use of a symmetrical NN structure. Moreoever, SA-CADRL is implemented on robotic hardware, which enabled fully autonomous navigation at human walking speed in a dynamic environment with many pedestrians. 
+- Future work will consider the relationships between nearby pedestrians, such as a group of people who walk together. <br>
+<br>
 
 [`Top`](#top)
 
 ---
-[^1]: [참고](https://blog.naver.com/i_am_sangyun/222507280824)
-[^2]: 진화 알고리즘. 생식, 돌연변이 등 생물학에서의 진화를 본뜬 메카니즘을 사용하는 어떤 개체군 기반의 조합최적화 알고리즘.[참고](http://www.aistudy.com/biology/genetic/evolutionary_algorithm.htm)
-[^3]: guide or limit search directions while training of a deep neural network based policy model. [참고](https://koreascience.kr/article/JAKO201912262463181.pdf)
-[^4]: reference [15].
-[^5]: reference [21].
-[^6]: reference [18].
-[^7]: reference [20].
-[^8]: [참고](https://medium.com/analytics-vidhya/a-deep-dive-into-vanilla-policy-gradients-3a79a95f3334)
-[^9]: 기존의 Poclicy gradient와 비슷하지만 monotonic improvement를 보장하면서도 policy를 iteratively optimize하는 방식. 직전 policy와는 차이가 적도록 policy를 업데이트.
-[^10]: TPRO보다 more general, much simpler, and have better sample complexity. 성능을 떨어뜨리지 않으면서도 가능한 큰 step으로 policy를 업데이트. constraint 없이 clipping을 사용하여 update 정도를 조정.
+[^1]: 
+[^2]: 
+[^3]: 
+[^4]: 
+[^5]: 
+[^6]: 
+[^7]: 
+[^8]: 
+[^9]: 
+[^10]: 
 [^11]: replay buffer를 사용하여 데이터를 저장하고 off-policy처럼 동작. targer network를 두어 학습시 정답을 잠시 보관.
 [^12]: optimize a stochastic policy in an off-policy. introduce the entropy-regularized RL setting. [참고](https://spinningup.openai.com/en/latest/algorithms/sac.html#quick-facts)
 [^13]: 순진무구한.
