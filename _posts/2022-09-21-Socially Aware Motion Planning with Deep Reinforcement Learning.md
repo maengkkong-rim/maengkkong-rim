@@ -113,7 +113,9 @@ Transfer learning[^20] tries to use experience from one set of tasks for faster 
 <br><br>
 
 <h2 id="con">Conclusion</h2>
-- This work presented SA-CADRL, a multiagent collision avoidance algorithm that considers and exhibits socially compliant behaviors. In particular, in a RL framework, a pair of simulated agents navigate around each other to learn a policy that respect human navigation norms. This approach is further generalized to multiagent(n>2) scenarios through the use of a symmetrical NN structure. Moreoever, SA-CADRL is implemented on robotic hardware, which enabled fully autonomous navigation at human walking speed in a dynamic environment with many pedestrians. 
+- This work presented SA-CADRL, a multiagent collision avoidance algorithm that considers and exhibits socially compliant behaviors. In particular, in a RL framework, a pair of simulated agents navigate around each other to learn a policy that respects human navigation norms. <br>
+- This approach is further generalized to multiagent(n>2) scenarios through the use of a symmetrical NN structure. <br>
+- Moreover, SA-CADRL is implemented on robotic hardware, which enabled fully autonomous navigation at human walking speed in a dynamic environment with many pedestrians. <br>
 - Future work will consider the relationships between nearby pedestrians, such as a group of people who walk together. <br>
 <br>
 
