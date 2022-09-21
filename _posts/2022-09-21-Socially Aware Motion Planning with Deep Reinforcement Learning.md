@@ -22,7 +22,13 @@ tags: robotic-vehicle pedestrian social-norm
 <br>
 
 <h2 id="int">Introduction</h2>
-These tasks often require the robots to be capable of navigating efficiently and safely in close proximity of people, which is challenging because pedestrians tend to follow subtle social norms that are difficult to quantify, and pedestrians' intents are usually not known.
+Robots should navigate efficiently and safely in close proximity of people, but it is challenging because pedestrians tend to follow subtle social norms that are difficult to quantify, and pedestrians' intents are usually not known. <br>
+
+
+
+
+
+
 
 A common approach treats pedestrians as dynamic obstacles with simple kinematics, and employs specific reactive rules for avoiding collision. Since these methods do not capture human behaviors, they sometimes generate unsafe/unnatural movements, particularly when the robot operates near human walking speed. To address this issue, more sophisticated motion models have been proposed, which would reason about the nearby pedestrians' hidden intents to generate a set of predicted paths. Subsequently, classical path planning algorithms would be employed to generate a collision-free path for the robot. Yet, spearating the navigation problem into disjoint prediction and planning steps can lead to the freezing robot problem, in which the robot fails to find any feasible action because the predicted paths could mark a large portion of the space untraversable. A key to resolving this problem is to account for cooperation, that is, to model/anticipate the impact of the robot's motion on the nearby pedestrians.
 
@@ -30,7 +36,11 @@ Existing work on coopertive, socially compliant navigation can be broadly classi
 
 In comparison, learning-based approaches aim to develop a policy that emulates human behaviors by matching feature statistic. Compared with model-based approaches, learning-based methods have been shown to produce paths that more closely resemble human behavoirs, but often at a much higher computational cost. This is because computating/matching trajectory features often requires anticipating the joint paths of all nearby pedestrians, and might depend on some unobservable information. More importantly, since human behaviors are inherently stochastic, the feature statistics calculated on pedestrians' paths can vary significantly from person to person, and even run to run for the same scenario. This raises concerns over whether such feature-matching methods are generalizable to different environments.
 
-In short, existing works are mostly focused on modeling and replicating the detailed mechanisms of social compliance, which remains difficult to quantify due to the stochasticity in people's behaviors. In comparison, humans can intuitively evaluate whether a behavior is acceptable. In particular, human navigation is time-efficient and generally respects a set of simple social norms. The main contributions of this work are i) introducing socially aware collision avoidance with deep RL(SA-CADRL) for explaining/inducing socially aware behaviors in a RL framework, ii) generalizing to multiagent(n>2) scenarios through developing a symmetrical NN structure, and iii) demonstrating on robotic hardware autonomous navigation at human walking speed in a pedestrian-rich environment.
+
+
+
+
+In short, existing works are mostly focused on modeling and replicating the detailed mechanisms of social compliance, which remains difficult to quantify due to the stochasticity in people's behaviors. The main contributions of this work are i) `introducing` socially aware collision avoidance with deep RL(`SA-CADRL`) for explaining/inducing socially aware behaviors, ii) `generalizing to multiagent`(n>2) scenarios through developing a symmetrical NN structure, and iii) `demonstrating on robotic hardware` autonomous navigation at human walking speed in a pedestrian-rich environment.
 <br><br>
 
 <h2 id="bac">Background</h2>
