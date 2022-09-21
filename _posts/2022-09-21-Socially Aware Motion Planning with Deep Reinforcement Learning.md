@@ -55,7 +55,7 @@ A major challenge in `finding the optimal value function` is that the joint stat
 <br><br><br>
 
 💡 [characterization of social norms] <br>
-Rather than trying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation through using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). <br>
+Rather than trying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation by using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). <br>
 
 ![Fig. 3](images/2022-09-21-4.PNG) <center>Fig 3: symmetries in multiagent collision avoidance</center>
 
@@ -65,12 +65,7 @@ It was interesting to observe that while `no behavioral rules` were imposed in t
 <br><br>
 
 <h2 id="app">Approach</h2>
-The following presents the socially aware multiagent collision avoidance with deep RL algorithm(SA-CADRL). We first describe a strategy for shaping framework, and then generalize the method to multiagent scenarios. <br><br>
-
-
-
-
-
+The following presents the socially aware multiagent collision avoidance with deep RL algorithm(SA-CADRL). We first describe a strategy for shaping framework and then generalize the method to multiagent scenarios. <br><br>
 
 💡 [inducing social norms] <br>
 There are multiple causes for the problem.
