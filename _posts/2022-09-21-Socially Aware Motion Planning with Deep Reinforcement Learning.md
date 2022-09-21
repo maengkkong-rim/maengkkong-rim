@@ -78,8 +78,8 @@ each agent's state is parameterized as:
 
 To induce a particular norm, a small bias can be introduced in the RL training process in favor of one set of behaviors over others. The advantage of this approach is that violations of a particular social norm are usually easy to specify; and this specification need not be precise. This is because the addition of a penalty breaks the symmetry in the collision avoidance problem, thereby favoring behaviors respecting the desired social norm. This work uses the following specification of a reward function $R_{norm}$(Fig. 5) for inducing the right-handed rules. An illustration of these three penalty sets is provided in Fig. 6. <br>
 
-![Fig. 5](images/2022-09-21-5.PNG) <center>Fig 5: specification of a reward function</center> <br>
-![Fig. 6](images/2022-09-21-5.PNG) <center>Fig 6: norm inducing reward function</center>
+![Fig. 5](images/2022-09-21-6.PNG) <center>Fig 5: specification of a reward function</center> <br>
+![Fig. 6](images/2022-09-21-7.PNG) <center>Fig 6: norm inducing reward function</center>
 
 - $q_n$: a scalar penalty
 - $I(\cdot)$: the indicator function
