@@ -44,22 +44,22 @@ In short, existing works are mostly focused on modeling and replicating the deta
 
 The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(Fig. 1) <br><br>
 
-![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center>
+![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
 
 Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal, (5). The optimal policy can be retrieved from the value function, (6).(Fig. 2) <br>
 
 ![Fig. 2](images/2022-09-21-2.PNG)
-![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center>
+![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
 
 A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`[^2]) to `characterize and induce socially aware behaviors in multiagent systems`.
 <br><br><br>
 
 💡 [characterization of social norms] <br>
-Rather than trying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation by using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). <br>
+Rather than trying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation by using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). <br><br>
 
-![Fig. 3](images/2022-09-21-4.PNG) <center>Fig 3: symmetries in multiagent collision avoidance</center>
+![Fig. 3](images/2022-09-21-4.PNG) <center>Fig 3: symmetries in multiagent collision avoidance</center> <br>
 
-It was interesting to observe that while `no behavioral rules` were imposed in the problem formulation, CADRL policy `exhibits certain navigation conventions`, as illustrated in Fig. 4.  As the offset increases, the CADRL agents eventually change passing direction in favor of shorter, smoother paths. However, the cooperative behaviors emerging from a CADRL solution are `not consistent with human interpretation`. Moreover, the cooperative behaviors of CADRL `cannot be controlled` - they are largely dependent on the initialization of the value network and set of randomly generated training test cases. The next section will address this issue and present a method to induce behaviors that respect human social norms. <br>
+It was interesting to observe that while `no behavioral rules` were imposed in the problem formulation, CADRL policy `exhibits certain navigation conventions`, as illustrated in Fig. 4.  As the offset increases, the CADRL agents eventually change passing direction in favor of shorter, smoother paths. However, the cooperative behaviors emerging from a CADRL solution are `not consistent with human interpretation`. Moreover, the cooperative behaviors of CADRL `cannot be controlled` - they are largely dependent on the initialization of the value network and set of randomly generated training test cases. The next section will address this issue and present a method to induce behaviors that respect human social norms. <br><br>
 
 ![Fig. 4](images/2022-09-21-5.PNG) <center>Fig 4: indications of a navigation convention from the CADRL policy</center>
 <br><br>
@@ -76,10 +76,10 @@ each agent's state is parameterized as:
 - $\phi$: the other agent's heading direction. $\phi=tan^{-1}(\tilde{v_y}/\tilde{v_x})$
 - $b_{on}$: a binary flag indicating whether the other agent is real or virtual <br>
 
-To `induce a particular norm`, a `small bias` can be introduced in the RL training process in favor of one set of behaviors over others. The advantage of this approach is that `violations` of a particular social norm are usually `easy to specify`; and this specification need not be precise. This is because the addition of a penalty breaks the symmetry in the collision avoidance problem, thereby favoring behaviors respecting the desired social norm. This work uses the following specification of a reward function $R_{norm}$(Fig. 5) for inducing the right-handed rules. An illustration of these three penalty sets is provided in Fig. 6. <br>
+To `induce a particular norm`, a `small bias` can be introduced in the RL training process in favor of one set of behaviors over others. The advantage of this approach is that `violations` of a particular social norm are usually `easy to specify`; and this specification need not be precise. This is because the addition of a penalty breaks the symmetry in the collision avoidance problem, thereby favoring behaviors respecting the desired social norm. This work uses the following specification of a reward function $R_{norm}$(Fig. 5) for inducing the right-handed rules. An illustration of these three penalty sets is provided in Fig. 6. <br><br>
 
 ![Fig. 5](images/2022-09-21-6.PNG) <center>Fig 5: specification of a reward function</center> <br>
-![Fig. 6](images/2022-09-21-7.PNG) <center>Fig 6: norm inducing reward function</center>
+![Fig. 6](images/2022-09-21-7.PNG) <center>Fig 6: norm inducing reward function</center> <br>
 
 - $q_n$: a scalar penalty
 - $I(\cdot)$: the indicator function
@@ -88,10 +88,9 @@ To `induce a particular norm`, a `small bias` can be introduced in the RL traini
 - $\mathcal{S}_{norm}$: the parameters defining the penalty set. affect the rate of convergence
 
 As long as training converges, the penalty sets' `size does not have a major effect on the learned policy`. This is expected because the desired behaviors are not in the penalty set. (9)-(12) in Fig. 5 can be modified to induce left-handed rules.
-We trained two SA-CADRL policies to learn left-handed and right-handed norms starting from the same initialization, the results of which are shown in Fig. 7. The learned policies exhibited similar qualitative behaviors as shown in Fig. 3. Note that training is performed on randomly generated test cases, not validation test cases.
+We trained two SA-CADRL policies to learn left-handed and right-handed norms starting from the same initialization, the results of which are shown in Fig. 7. The learned policies exhibited similar qualitative behaviors as shown in Fig. 3. Note that training is performed on randomly generated test cases, not validation test cases. <br>
 
 ![Fig. 7](images/2022-09-21-8.PNG) <center>Fig 7: SA-CADRL policies exhibiting socially aware behaviors</center>
-
 <br><br><br>
 
 
