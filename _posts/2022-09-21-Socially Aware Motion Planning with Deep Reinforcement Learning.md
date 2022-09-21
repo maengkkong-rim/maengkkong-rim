@@ -42,9 +42,12 @@ The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, th
 
 ![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
 
-This 
+Consider an agent's joint configuration with its neighbor, $s^{jn}=[s, \tilde{s}^o]$. Reward function, $R_{col}(s^{jn}, u), can be specified to reward the agent for reaching its goal and penalize the agent for colliding with others. The unknown state-transition model, $P(s_{t+1}^{jn}, s_t^{jn}\|u_t)$ takes into account the uncertainty in the other agent's motion due to its hidden intents (\tilde{s}^h). Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal(5). The optimal policy can be retrived from the value function, (6).(Fig. 2) <br>
 
+![Fig. 2](images/2022-09-21-2.PNG) <center></center>
+![Fig. 3](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
 
+A major challenge in finding the optimal value function is that the joint state $s^{jn}$ is a continuos, high-dimensional vector, making it impractical to discretize and enumerate the state space. Recent advances in RL address this issue by using deep NN to represent value functions in high-dimensional spaces, and have demonstrated human-level performance on various complex tasks. while several recent works have applied deep RL to motion planning, they are mainly focused on single agent navigation in unknown static environments, and with an emphasis on computing control inputs directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deel RLframework(CADRL) to characterize and induce socially aware behaviors in multiagent systems.
 
 
 
