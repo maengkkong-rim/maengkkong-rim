@@ -42,33 +42,37 @@ In short, existing works are mostly focused on modeling and replicating the deta
 - $R_{col}(s^{jn}, u)$: reward function. for reaching its goal and penalize the agent for colliding with others
 - $P(s_{t+1}^{jn}, s_t^{jn}\|u_t)$: the unknown state-transition model. take into account the uncertainty in the other agent's motion due to its hidden intents ($\tilde{s}^h$) <br>
 
-The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(Fig. 1) <br>
+The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(Fig. 1) <br><br>
 
-![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
+![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center>
 
 Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal, (5). The optimal policy can be retrieved from the value function, (6).(Fig. 2) <br>
 
 ![Fig. 2](images/2022-09-21-2.PNG)
-![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
+![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center>
 
 A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`) to `characterize and induce socially aware behaviors in multiagent systems`.
 <br><br><br>
 
 💡 [characterization of social norms] <br>
-Rather than trrying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation through using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). 
+Rather than trying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions. Reciprocity does not require a unique set of navigation rules, since both the left-handed and the right-handed rules can resolve path conflicts as shown in Fig.3. This work notes that cooperative and time-efficient properties are encoded in the CADRL formulation through using the min-time reward function and the reciprocity assumption($\tilde{\pi}=\pi$). <br>
 
+![Fig. 3](images/2022-09-21-4.PNG) <center>Fig 3: symmetries in multiagent collision avoidance</center>
 
+It was interesting to observe that while `no behavioral rules` were imposed in the problem formulation, CADRL policy `exhibits certain navigation conventions`, as illustrated in Fig. 4.  As the offset increases, the CADRL agents eventually change passing direction in favor of shorter, smoother paths. However, the cooperative behaviors emerging from a CADRL solution are `not consistent with human interpretation`. Moreover, the cooperative behaviors of CADRL `cannot be controlled` - they are largely dependent on the initialization of the value network and set of randomly generated training test cases. The next section will address this issue and present a method to induce behaviors that respect human social norms. <br>
 
-
-
-
-
+![Fig. 4](images/2022-09-21-5.PNG) <center>Fig 4: indications of a navigation convention from the CADRL policy</center>
 <br><br>
 
 <h2 id="app">Approach</h2>
-Robotics RL is often modeled as `partially observable MDP` as it is common for states to be unobservable or partially observable. Successful algorithms especially model-based methods, therefore, need to be `robust to a significant scale of uncertainty` in the model. we discuss three main issues, from our perspective, limiting the application of RL for real-world robotics problems. <br><br>
+The following presents the socially aware multiagent collision avoidance with deep RL algorithm(SA-CADRL). We first describe a strategy for shaping framework, and then generalize the method to multiagent scenarios. <br><br>
 
-💡 [sample inefficiency] <br>
+
+
+
+
+
+💡 [inducing social norms] <br>
 There are multiple causes for the problem.
 1. many algorithms try to learn to perform a task from `scratch`, therefore, they would need a lot of data to learn.
 2. algorithms are still `not good enough at exploiting` useful information from current data.
