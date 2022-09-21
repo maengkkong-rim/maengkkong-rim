@@ -93,20 +93,13 @@ We trained two SA-CADRL policies to learn left-handed and right-handed norms sta
 ![Fig. 7](images/2022-09-21-8.PNG) <center>Fig 7: SA-CADRL policies exhibiting socially aware behaviors</center>
 <br><br><br>
 
+💡 [training a multiagent value network] <br>
+The CADRL work trained a two-agent network with three fully connected hidden layers, and use a minimax scheme for scaling up to multiagent(n>2) scenarios. Since training was solely performed on a two-agent system, it was difficult to encode/induce higher order behaviors, such as accounting for the relations between nearby agents. This work addresses this problem by developing a method that allows for training on multiagent scenarios directly.
 
 
 
 
 
-
-
-
-
-
-
-
-
-💡 [training a multiagent value network]
 - exploration: give more knowledge about the environment, which can lead to better future decisions.
 - exploitation: choose the best action to take given the current information.
 
