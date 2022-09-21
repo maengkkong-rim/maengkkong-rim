@@ -73,7 +73,7 @@ each agent's state is parameterized as:
 - $s^o=[\tilde{p_x}, \tilde{p_y}, \tilde{v_x}, \tilde{v_y}, \tilde{r}, \tilde{d_a}, \tilde{phi}, \tilde{b_{on}}]$
 - $d_g$: the agent's distance to goal. $d_g=\lVert{P_g-P}\rVert_2$
 - $\tilde{d_a}$: the distance to the other agent. $\tilde{d_a}=\lVert{P-\tilde{P}}\rVert_2$
-- $\phi$: the other agent's heading direction. $\phi=tan^{-1}(\tilde{v_y}/\tilde{v_x})
+- $\phi$: the other agent's heading direction. $\phi=tan^{-1}(\tilde{v_y}/\tilde{v_x})$
 - $b_{on}$: a binary flag indicating whether the other agent is real or virtual
 
 
