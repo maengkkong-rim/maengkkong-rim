@@ -38,7 +38,7 @@ In short, existing works are mostly focused on modeling and replicating the deta
 - $\tilde{s_t}$: state of a nearby agent
 - $s^o$: let the observable states be the agent's position, velocity, and radius. $s^o=[p_x, p_y, v_x, v_y, r]\in\mathbb{R}^5$. obtained from sensor measurements
 - $s^h$: let the unobservable states be the agent's intended goal position, preferred speed, and orientation. $s^h=[p_gx, p_gy, v_{pref}, \psi]\in\mathbb{R}^4$
-The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(in Fig. 1) <br>
+The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(in Fig. 1) <br>
 
 ![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
 
