@@ -37,55 +37,32 @@ In short, existing works are mostly focused on modeling and replicating the deta
 - $u_t$: an agent's action at time t. let the action be the agent's velocity. $u_t=v_t$
 - $\tilde{s_t}$: state of a nearby agent
 - $s^o$: let the observable states be the agent's position, velocity, and radius. $s^o=[p_x, p_y, v_x, v_y, r]\in\mathbb{R}^5$. obtained from sensor measurements
-- $s^h$: let the unobservable states be the agent's intended goal position, preferred speed, and orientation. $s^h=[p_{gx}, p_{gy}, v_{pref}, \psi]\in\mathbb{R}^4$ <br>
+- $s^h$: let the unobservable states be the agent's intended goal position, preferred speed, and orientation. $s^h=[p_{gx}, p_{gy}, v_{pref}, \psi]\in\mathbb{R}^4$
+- $s^{jn}$: an agent's joint configuration with its neighbor. $s^{jn}=[s, \tilde{s}^o]$
+- $R_{col}(s^{jn}, u)$: reward function. for reaching its goal and penalize the agent for colliding with others
+- $P(s_{t+1}^{jn}, s_t^{jn}\|u_t)$: the unknown state-transition model. take into account the uncertainty in the other agent's motion due to its hidden intents ($\tilde{s}^h$) <br>
+
 The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o)\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(Fig. 1) <br>
 
 ![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
 
-Consider an agent's joint configuration with its neighbor, $s^{jn}=[s, \tilde{s}^o]$. Reward function, $R_{col}(s^{jn}, u), can be specified to reward the agent for reaching its goal and penalize the agent for colliding with others. The unknown state-transition model, $P(s_{t+1}^{jn}, s_t^{jn}\|u_t)$ takes into account the uncertainty in the other agent's motion due to its hidden intents (\tilde{s}^h). Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal(5). The optimal policy can be retrived from the value function, (6).(Fig. 2) <br>
+Solving the RL problem amounts to finding the optimal value function that encodes an estimate of the expected time to goal, (5). The optimal policy can be retrieved from the value function, (6).(Fig. 2) <br>
 
-![Fig. 2](images/2022-09-21-2.PNG) <center></center>
+![Fig. 2](images/2022-09-21-2.PNG)
 ![Fig. 3](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
 
-A major challenge in finding the optimal value function is that the joint state $s^{jn}$ is a continuos, high-dimensional vector, making it impractical to discretize and enumerate the state space. Recent advances in RL address this issue by using deep NN to represent value functions in high-dimensional spaces, and have demonstrated human-level performance on various complex tasks. while several recent works have applied deep RL to motion planning, they are mainly focused on single agent navigation in unknown static environments, and with an emphasis on computing control inputs directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deel RLframework(CADRL) to characterize and induce socially aware behaviors in multiagent systems.
-
-
-
-
-
-
-
-Markov Decision Process(MDP) is a classical formalization of sequential decision making. <br>
-It contains:
-- a set of possible states $\mathcal{S}$
-- a set of possible actions $\mathcal{A}$
-- a reward function $R(s,a)\in\mathcal{R}$
-- a probability distribution $p(s',r\|s,a)$ of the environment <br><br>
-
-A value function specifies what is good in the long run of a state $s$ or a state-action pair $(s,a)$ when following a particular policy $\pi$.
-- value function $V^\pi(s)=E_{a\sim\pi}[R(\tau)\|s_t=s]$
-- action-value function $Q^\pi(s,a)=E_{a\sim\pi}[R(\tau)\|s_t=s, a_t=a]$
-- optimal value function $V^\ast(s)=max_{\pi}E_{a\sim\pi}[R(\tau)\|s_t=s]$
-- optimal action-value function $Q^\ast(s,a)=max_{\pi}E_{a\sim\pi}[R(\tau)\|s_t=s, a_t=a]$
-
-Given the optimal $Q^\ast(s,a)$, we can obtain the optimal action $a^\ast(s)=arg max_a Q^\ast(s,a)$ at a given state $s$, and then we can directly construct the optimal policy $\pi^\ast$. <br>
-
-Bellman equation[^1] is obeyed by all four types of value functions.
-- $V^\pi(s)=E[r_t+\gamma*V^\pi(s_{t+1})\|s_t=s]$
-- $G^\pi(s,a)=E[r_t+\gamma*E[G_{t+1}\|s_t=s, a_t=a]\|s_t=s, a_t=a]$
-- $V^\ast(s)=E[r_t+\gamma*V^\ast(s_{t+1})\|s_t=s]$
-- $Q^\ast(s,a)=E[r_t+\gamma*max_{a_{t+1}}Q^\ast(s_{t+1},a_{t+1})\|s_t=s, a_t=a]$
+A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`) to `characterize and induce socially aware behaviors in multiagent systems`.
 <br><br><br>
 
-💡 [TAXONOMY OF RL ALGORITHMS] <br>
-A. Model-based amd Model-free <br>
-- whether the agent has the access or learns a model of the environment.
-- Model-based: having a model that allows the agent to plan ahead to predict what would happen when choosing a certain action from a range of possible ones.
-- Model-free: it is usually the case when the model is not available or the learning of such a model is very challenging. figure out the value functions directly from the interactions with the environment. rely heavily on reward signals for learning the value functions, so it is important to have learning-induced reward functions. it is often easier to implement and tune hyperparameters. <br><br>
+💡 [characterization of social norms] <br>
+Rather than trrying to quantify human behaviors directly, this work notes that the complex normative motion patterns can be a consequence of simple local interactions.
 
-B. Value-based and Policy-based <br>
-- Value-based: try to estimate the action-value function $Q(s,a\|\theta)$ for the optimal $Q^\ast(s,a)$. this optimization is often performed off-policy, meaning that the policy used to generate behavior for getting training data, may be unrelated to the policy that is evaluated and improved, called the estimation policy.
-- Policy-based: parameterize the policy as $\pi(s,a\|\theta)$, and the target is to optimize $\theta$ either through gradient descent on an objective function $J(\pi)$ or by maximizing local approximations of $J$. this method is often on-policy, meaning that they estimate the value of a policy while using it for control. it is less sample-efficient as they only use samples collected from the latest version of the policy. we directly optimize what we need, which allows stability and reliability improvements.
+
+
+
+
+
+
 <br><br>
 
 <h2 id="app">Approach</h2>
