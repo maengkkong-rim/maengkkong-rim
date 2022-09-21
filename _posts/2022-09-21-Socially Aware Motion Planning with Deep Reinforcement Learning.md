@@ -32,13 +32,25 @@ In short, existing works are mostly focused on modeling and replicating the deta
 <br><br>
 
 <h2 id="bac">Background</h2>
-💡 [KEY CONCEPTS AND TERMINOLOGY] <br><br>
-![Fig. 1](images/2022-09-14.PNG) <center>Fig 1: The agent-environment interaction</center> <br>
-There are four main elements of a RL system: <br>
-a policy, a reward signal, a value function, and optionally a model of the environment.
-- policy: defines the learning agent's way of behaving at a given time. mapping from the perceived states to actions to be taken when being in those states.
-- reward signal: a reward is dependent on the current state and the action $r=R(s,a)$. the agent's ultimate goal is to maximize the cumulative reward $G_t=\sum_{k=t+1}^T \gamma^{k-t-1}*R_k$
-- model of the environment: allows inferences about how the environment will behave. the dynamics of the environment is fully characterized by a distribution $p$. <br><br>
+💡 [collision avoidance with deep RL]
+- $s_t$: an agent's state at time t. the state vector is partitioned into observable and unobservable parts. $s_t=[s_t^o, s_t^h]$
+- $u_t$: an agent's action at time t. let the action be the agent's velocity. $u_t=v_t$
+- $\tilde{s_t}: state of a nearby agent
+- $s^o$: let the observable states be the agent's position, velocity, and radius. $s^o=[p_x, p_y, v_x, v_y, r]\in\mathbb{R}^5$. obtained from sensor measurements
+- $s^h$: let the unobservable states be the agent's intended goal position, preferred speed, and orientation. $s^h=[p_gx, p_gy, v_pref, \psi]\in\mathbb{R}^4$
+The objective is to develop a policy, $\pi:(s_t, \tilde{s_t}^o\mapsto{u_t}$, that minimizes the expected time to goal $E[t_g]$ while avoiding collision with nearby agents, where (2) is the collision avoidance constraint, (3) is the goal constraint, (4) is the agent's kinematics, and the expectation in (1) is with respect to the other agent's unobservable states and policy.(in Fig. 1) <br>
+
+![Fig. 1](images/2022-09-21-1.PNG) <center>Fig 1: constraints, kinematics, and expectation</center> <br>
+
+This 
+
+
+
+
+
+
+
+
 
 Markov Decision Process(MDP) is a classical formalization of sequential decision making. <br>
 It contains:
