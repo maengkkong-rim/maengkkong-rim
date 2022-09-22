@@ -11,7 +11,7 @@ tags: SA_CADRL social-norm multiagent symmetrical-NN robot
 <h2 id="top"></h2><br>
 📝 Y. F. Chen, M. Everett, M. Liu, and J. P, " Socially aware motion planning with deep reinforcement learning," in Proc. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS),  Vancouver, BC, Canada, Sep. 2017, pp. 1343–1350. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8202312)[^1] <br>
 
-📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
+📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
 
 <h2 id="abs">Abstract</h2>
 - For robotic vehicles to navigate safely and efficiently in pedestrian-rich environments, it is important to model subtle human behaviors and navigation rules. <br>
@@ -111,10 +111,11 @@ Furthermore, an n-agent network can be used to generate trajectories for scenari
 ![Fig. 9](images/2022-09-21-10.PNG) <center>Fig 9: SA-CADRL policies generalized to multiagent scenarios using the network structure in Fig. 8</center>
 <br><br>
 
-<h2 id="exp">Experiments</h2>
-
 <h2 id="res">Results and Discussion</h2>
-The strongest motivation
+💡 [computational details] <br>
+
+💡 [simulation results] <br>
+💡 [hardware experiment] <br>
 <br><br>
 
 <h2 id="con">Conclusion</h2>
