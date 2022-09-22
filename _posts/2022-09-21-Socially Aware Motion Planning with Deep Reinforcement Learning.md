@@ -94,14 +94,26 @@ We trained two SA-CADRL policies to learn left-handed and right-handed norms sta
 <br><br>
 
 💡 [training a multiagent value network] <br>
-The CADRL work trained a two-agent network with three fully connected hidden layers, and use a minimax scheme for scaling up to multiagent(n>2) scenarios. Since training was solely performed on a two-agent system, it was difficult to encode/induce higher order behaviors, such as accounting for the relations between nearby agents. This work addresses this problem by developing a method that allows for training on multiagent scenarios directly.
-To capture the multiagent system's symmetrical structure, a NN with weight-sharing and max-pooling layers is employed, as shown in fig. 8. For a four-agent network showin in Fig. 8b, the three nearby agents' observed states can be swapped(blue input blocks) without affecting the output value. This condition is enforced through weight-sharing, as shown in Fig. 8a. Two of such symmetrical layers are used, followed by a max-pooling layer for aggregating features and two fully-connected layers for computing a scalar value. This work uses the rectified linear unit(ReLU) as the activation function in the hidden layers.
+The CADRL solely performed on a two-agent system, so it was difficult to account for[^4] the relations between nearby agents. This work addresses this problem by developing a method that allows for training on multiagent scenarios directly. To `capture the multiagent system's symmetrical structure`, a `NN with weight-sharing` and `max-pooling layers` is employed, as shown in fig. 8. For a four-agent network showin in Fig. 8b, the three nearby agents' observed states can be swapped(blue input blocks) without affecting the output value. This condition is enforced through `weight-sharing`, as shown in Fig. 8a. Two of such symmetrical layers are used, followed by a max-pooling layer for aggregating features and two fully-connected layers for computing a scalar value. This work uses the rectified linear unit(ReLU) as the activation function in the hidden layers.
 
 ![Fig. 8](images/2022-09-21-9.PNG) <center>Fig 8: Network structure for multiagent scenarios</center> <br>
 
 The input to the n-agent network is a generalization of $s$ and $s^o$, $s^{jn}=[s, \tilde{s}^{o, 1}, ... \tilde{s}^{o, n-1}]$. The norm-inducing reward function is defined similarly as (9) in Fig. 5, where a penalty is given if an agent's joint configuration with the closest nearby agent belongs to the penalty set $\mathcal{S}_{norm}$. The overall reward function is the sum of the original CADRL reward and the norm-inducing reward, that is, $R(\cdot)=R_{col}(\cdot)+R_{norm}(\cdot)$.
 
-The procedure for training a multiagent SA-CADRL policy is outlined in Algorithm 1. A value network is first initialized by training on an n-agent trajectory dataset through NN regression(line 1). Using this value network (6) and following an $\epsilon$-greedy policy, a set of trajectories can be generated on random set cases(line 5-7). The trajectories are then turned into state-value pairs and assimilated[^4] into the experience sets $E$, $E_b$(bad experience set)(line 10-11). A subset of state-value pairs is sampled from the experience sets, and subsequently used to update the value network through back-propagation(line 12-13). The process repeats for a pre-specified number of episodes(line 3-4).
+
+
+
+
+
+
+
+
+
+
+
+
+
+The procedure for training a multiagent SA-CADRL policy is outlined in Algorithm 1. A value network is first initialized by training on an n-agent trajectory dataset through NN regression(line 1). Using this value network (6) and following an $\epsilon$-greedy policy, a set of trajectories can be generated on random set cases(line 5-7). The trajectories are then turned into state-value pairs and assimilated[^5] into the experience sets $E$, $E_b$(bad experience set)(line 10-11). A subset of state-value pairs is sampled from the experience sets, and subsequently used to update the value network through back-propagation(line 12-13). The process repeats for a pre-specified number of episodes(line 3-4).
 
 ![Al. 1](images/2022-09-21-al1.PNG) <center>Algorithm 1</center> <br>
 
@@ -131,5 +143,5 @@ The strongest motivation
 [^1]: reference [14]를 발전시킨 형태.
 [^2]: SA-CADRL
 [^3]: CADRL reference [14].?
-[^4]: 동화되다.
-[^5]: 
+[^4]: 설명하다.
+[^5]: 동화되다.
