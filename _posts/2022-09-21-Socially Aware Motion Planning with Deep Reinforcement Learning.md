@@ -117,6 +117,9 @@ Furthermore, an n-agent network can be used to generate trajectories for scenari
 <br><br>
 
 💡 [simulation results] <br>
+Three copies of four-agent SA-CADRL policies were trained, one wihtout the norm inducing reward $R_{norm}$, one with the left-handed $R_{norm}$, and the other with the right-handed $R_{norm}$. 
+
+
 💡 [hardware experiment] <br>
 <br><br>
 
