@@ -9,7 +9,7 @@ tags: SA_CADRL social-norm multiagent symmetrical-NN robot
 
 ---
 <h2 id="top"></h2><br>
-📝 Y. F. Chen, M. Everett, M. Liu, and J. P, " Socially aware motion planning with deep reinforcement learning," in Proc. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS),  Vancouver, BC, Canada, Sep. 2017, pp. 1343–1350. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8202312) <br>
+📝 Y. F. Chen, M. Everett, M. Liu, and J. P, " Socially aware motion planning with deep reinforcement learning," in Proc. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS),  Vancouver, BC, Canada, Sep. 2017, pp. 1343–1350. [link](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8202312)[^1] <br>
 
 📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Experiments`](#exp) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
 
@@ -28,7 +28,7 @@ Existing work on cooperative, socially compliant navigation can be broadly class
 
 In comparison, `learning-based` approaches aim to develop a policy that emulates human behaviors by matching feature statistics. Compared with model-based approaches, their paths `resemble human behavoirs` more closely, but often at a much `higher computational cost`. This is because computing/matching trajectory features often requires anticipating the joint paths of all nearby pedestrians, and might depend on some unobservable information. More importantly, since human behaviors are inherently stochastic, the `feature statistics` calculated on pedestrians' paths `can vary` significantly. This raises concerns over whether such feature-matching methods are generalizable to different environments. <br>
 
-In short, existing works are mostly focused on modeling and replicating the detailed mechanisms of social compliance, which remains difficult to quantify due to the stochasticity in people's behaviors. The main contributions of this work are i) `introducing` socially aware collision avoidance with deep RL(`SA-CADRL`[^1]) for explaining/inducing socially aware behaviors, ii) `generalizing to multiagent`(n>2) scenarios through developing a symmetrical NN structure, and iii) `demonstrating on robotic hardware` autonomous navigation at human walking speed in a pedestrian-rich environment.
+In short, existing works are mostly focused on modeling and replicating the detailed mechanisms of social compliance, which remains difficult to quantify due to the stochasticity in people's behaviors. The main contributions of this work are i) `introducing` socially aware collision avoidance with deep RL(`SA-CADRL`[^2]) for explaining/inducing socially aware behaviors, ii) `generalizing to multiagent`(n>2) scenarios through developing a symmetrical NN structure, and iii) `demonstrating on robotic hardware` autonomous navigation at human walking speed in a pedestrian-rich environment.
 <br><br>
 
 <h2 id="bac">Background</h2>
@@ -51,7 +51,7 @@ Solving the RL problem amounts to finding the optimal value function that encode
 ![Fig. 2](images/2022-09-21-2.PNG)
 ![Fig. 2-2](images/2022-09-21-3.PNG) <center>Fig 2: optimal value function and optimal policy</center> <br>
 
-A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`[^2]) to `characterize and induce socially aware behaviors in multiagent systems`.
+A major challenge in `finding the optimal value function` is that the joint state $s^{jn}$ is a continuous, high-dimensional vector, making it impractical to discretize and enumerate the state space. Several recent works have applied `deep RL` to motion planning, they are mainly focused on `single agent` navigation in unknown static environments, and with an emphasis on `computing control inputs` directly from raw sensor data, like camera images. In contrast, this work extends the collision avoidance with deep RL framework(`CADRL`[^3]) to `characterize and induce socially aware behaviors in multiagent systems`.
 <br><br><br>
 
 💡 [characterization of social norms] <br>
@@ -95,8 +95,15 @@ We trained two SA-CADRL policies to learn left-handed and right-handed norms sta
 
 💡 [training a multiagent value network] <br>
 The CADRL work trained a two-agent network with three fully connected hidden layers, and use a minimax scheme for scaling up to multiagent(n>2) scenarios. Since training was solely performed on a two-agent system, it was difficult to encode/induce higher order behaviors, such as accounting for the relations between nearby agents. This work addresses this problem by developing a method that allows for training on multiagent scenarios directly.
+To capture the multiagent system's symmetrical structure, a NN with weight-sharing and max-pooling layers is employed, as shown in fig. 8. For a four-agent network showin in Fig. 8b, the three nearby agents' observed states can be swapped(blue input blocks) without affecting the output value. This condition is enforced through weight-sharing, as shown in Fig. 8a. Two of such symmetrical layers are used, followed by a max-pooling layer for aggregating features and two fully-connected layers for computing a scalar value. This work uses the rectified linear unit(ReLU) as the activation function in the hidden layers.
 
+![Fig. 8](images/2022-09-21-9.PNG) <center>Fig 8: Network structure for multiagent scenarios</center> <br>
 
+The input to the n-agent network is a generalization of $s$ and $s^o$, $s^{jn}=[s, \tilde{s}^{o, 1}, ... \tilde{s}^{o, n-1}]$. The norm-inducing reward function is defined similarly as (9) in Fig. 5, where a penalty is given if an agent's joint configuration with the closest nearby agent belongs to the penalty set $\mathcal{S}_{norm}$. The overall reward function is the sum of the original CADRL reward and the norm-inducing reward, that is, $R(\cdot)=R_{col}(\cdot)+R_{norm}(\cdot)$.
+
+The procedure for training a multiagent SA-CADRL policy is outlined in Algorithm 1. A value network is first initialized by training on an n-agent trajectory dataset through NN regression(line 1). Using this value network (6) and following an $\epsilon$-greedy policy, a set of trajectories can be generated on random set cases(line 5-7). The trajectories are then turned into state-value pairs and assimilated[^4] into the experience sets $E$, $E_b$(bad experience set)(line 10-11). A subset of state-value pairs is sampled from the experience sets, and subsequently used to update the value network through back-propagation(line 12-13). The process repeats for a pre-specified number of episodes(line 3-4).
+
+Compared with CADRL, two important modifications are introduced in the training process. First, two experience sets, $E$, $E_b$, are used to distinguish between trajectories that reached the goals and those that ended in a collision(line 2, 11). This is because a vast majority(>=90%) of the random generated test cases were fairly simple, requiring an agent to travel mostly straight toward its goal. $E_b$ improves the rate of learning by focusing on the scenarios that fared poorly for the current policy. Second, during the training process, trajectories generated by SA-CADRL are reflected in the x-axis with probability $\epsilon_f$(line 8). By inspection of Fig. 3, this operation flips the paths' topology(left-handedness vs right-handedness). 
 
 
 <br><br>
@@ -117,8 +124,8 @@ The strongest motivation
 [`Top`](#top)
 
 ---
-[^1]: SA-CADRL
-[^2]: CADRL
-[^3]: 
-[^4]: 
+[^1]: reference [14]를 발전시킨 형태.
+[^2]: SA-CADRL
+[^3]: CADRL reference [14].?
+[^4]: 동화되다.
 [^5]: 
