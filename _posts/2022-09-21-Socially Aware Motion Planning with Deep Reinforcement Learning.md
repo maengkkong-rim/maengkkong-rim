@@ -98,8 +98,7 @@ The CADRL solely performed on a two-agent system, so it was difficult to account
 
 ![Fig. 8](images/2022-09-21-9.PNG) <center>Fig 8: Network structure for multiagent scenarios</center> <br>
 
-The input to the n-agent network is a generalization of $s$ and $s^o$, $s^{jn}=[s, \tilde{s}^{o, 1}, ... \tilde{s}^{o, n-1}]$. The norm-inducing reward function is defined similarly as (9) in Fig. 5, where a penalty is given if an agent's joint configuration with the closest nearby agent belongs to the penalty set 
-$\mathcal{S}_{norm}$. The overall reward function is the sum of the original CADRL reward and the norm-inducing reward, that is, $R(\cdot)=R_{col}(\cdot)+R_{norm}(\cdot)$. <br>
+The input to the n-agent network is a generalization of $s$ and $s^o$, $s^{jn}=[s, \tilde{s}^{o, 1}, ... \tilde{s}^{o, n-1}]$. The norm-inducing reward function is defined similarly as (9) in Fig. 5, where a penalty is given if an agent's joint configuration with the closest nearby agent belongs to the penalty set. The overall reward function is the sum of the original CADRL reward and the norm-inducing reward, that is, $R(\cdot)=R_{col}(\cdot)+R_{norm}(\cdot)$. <br>
 
 The procedure for training a multiagent SA-CADRL policy is outlined in Algorithm 1. A value network is first initialized by training on an n-agent trajectory dataset through NN regression(line 1). Using this value network and following an $\epsilon$-greedy policy, a set of trajectories can be generated on random set cases(line 5-7). The trajectories are then turned into state-value pairs and assimilated[^5] into the experience sets $E$, $E_b$(bad experience set)(line 10-11). A subset of state-value pairs is sampled from the experience sets, and subsequently used to update the value network through back-propagation(line 12-13). The process repeats for a pre-specified number of episodes(line 3-4). <br><br>
 
