@@ -117,8 +117,14 @@ Furthermore, an n-agent network can be used to generate trajectories for scenari
 <br><br>
 
 💡 [simulation results] <br>
-Three copies of four-agent SA-CADRL policies were trained, one wihtout the norm inducing reward $R_{norm}$, one with the left-handed $R_{norm}$, and the other with the right-handed $R_{norm}$. 
+Three copies of four-agent SA-CADRL policies were trained, one wihtout the norm inducing reward $R_{norm}$, one with the left-handed $R_{norm}$, and the other with the right-handed $R_{norm}$. To demonstrate that SA-CADRL can balance between finding time-efficient paths and respecting social norms, these policies are further evaluated on randomly generated test cases. To ensure the test set if left-right balanced, each random test case is duplicated and reflected in the x-axis. <br>
 
+The same four-agent SA-CADRL polices are used to generate trajectories for both the two-agent and the four-agent test sets. On the two-agent test set, all RL-based methods produced more time-efficient paths than ORCA[^6](Table 1). The four-agent SA-CADRL(none) policy, in comparison, exhibited a stronger preference than ORCA and CADRL in each of the passing, crossing, and overtaking scenarios. This observation suggests that i) certain navigation conventions could emerge as a means of resolving symmetrical collision avoidance scenarios, and ii) the conventions don't always correspond to human social norms. the SA-CADRL policies trained with $R_{norm}$, exhibited a strong preference of the respective social norm. Recall that this ratio is not 1 because there is a tradeoff between time-optimality and social compliance, as shown in Fig. 4. This tradeoff can be controlled by tuning $q_n$ in (9) in Fig. 5. Evidently, SA-CADRL(lh/rh) achieves better social compliance at a cost of an approximately 20% larger $\bar{t_e}$, because satisfying the norms often requires traveling a longer path. <br>
+
+Similarly, the bottom rows of table 1 show that in the four-agent test set, all RL-based methods outperformed ORCA, and SA-CADRL(lh/rh) exhibited behaviors that respect the social norms. CADRL produced paths that are closer to time-optimal than the other algorithms, but sometimes came very close to other agents. This close proximity occured because CADRL was trained on a two-agent system, so its action choice is dominated by the single closest neighbor; possibly leading CADRL to select an action that avoids the closest neighbor but drives towards a third agent. In contrast, all SA-CADRL policies were trained on four-agent systems and they all maintained a larger average separation distance.
+
+![Table 1](images/2022-09-21-t1.PNG) <center>Table 1. SA-CADRL's performance statistics on 200 randomly generated test cases</center>
+<br><br>
 
 💡 [hardware experiment] <br>
 <br><br>
@@ -138,3 +144,4 @@ Three copies of four-agent SA-CADRL policies were trained, one wihtout the norm 
 [^3]: CADRL reference [14].?
 [^4]: 설명하다.
 [^5]: 동화되다.
+[^6]: specifies a reactive, geometric rule for computing a collision-free velocity vector, but it does not anticipate the evolution of an agent's state with respect to other agents nearby. thus, ORCA can generate shortsighted actions and oscillatory paths. reference [14].
