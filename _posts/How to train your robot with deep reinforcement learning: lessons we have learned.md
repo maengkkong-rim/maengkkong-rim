@@ -9,7 +9,7 @@ tags: robot RL deep-learning
 <h2 id="top"></h2><br>
 📝 J. Ibarz, J. Tan, C. Finn, M. Kalakrishnan, P. Pastor, and S. Levine, "How to train your robot with deep reinforcement learning: lessons we have learned," The International Journal of Robotics Research, 2021, 40(4-5), pp. 698–721. [link](https://journals.sagepub.com/doi/epub/10.1177/0278364920987859)<br>
 
-📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Results & Discussion`](#res) [`Conclusion`](#con) <br><br>
+📌 [`Abstract`](#abs) [`Intro`](#int) [`Background`](#bac) [`Approach`](#app) [`Discussion & Conclusion`](#con) <br><br>
 
 <h2 id="abs">Abstract</h2>
 - Present a number of case studies involving robotic deep RL <br>
@@ -99,15 +99,7 @@ We currently do `not have an effective benchmark` to evaluate the generalization
 Combating reproducibility is challenging for the continuous environment such as in robots due to a `higher instability`. Besides the need for more robust RL algorithms to hyperparameters, we would possibly need to agree on proper experimental methodologies and proper evaluation methods and metrics to address the problem. Effective tools for documenting changes during experiment setup and `standard set of environments` are also useful for improving reproducibility.
 <br><br>
 
-<h2 id="res">Results and Discussion</h2>
-The strongest motivation for future developments is how to efficiently take deep RL algorithms to the real world. From our perspective, agents/robots must learn `much faster and more efficiently`. <br>
-`Model-based learning` has the biggest advantage of being sample-efficient and there existed interesting research in this direction to predict the future. <br>
-There is still a `big gap between RL algorithms and humans` in terms of sample efficiency. We do not learn from scratch, and we can reuse our past knowledge to learn a new skill much more efficiently. Model-based learning approach can also help in this situation, thanks to its more potential transferability and generality. A different approach rather than approximating the dynamics is to use `multi-task learning` to reuse skills. The interesting thing in this work was learning on various tasks had better performance compared to learning in a single-task setting. <br>
-Transfer learning[^20] tries to use experience from one set of tasks for faster learning and better performance on a new task. Transfer learning from tasks trained on simulators is particularly tempting as relatively cheap resources are needed. Another study performed `parallel learning` between simulated and real robots by introducing `additional alignment rewards` that encourage both agents in two domains to have similar distributions over visited states. <br>
-`Inverse RL` is also promising, which can solve the nightmare of designing reasonable reward functions.
-<br><br>
-
-<h2 id="con">Conclusion</h2>
+<h2 id="con">Discussion & Conclusion</h2>
 - Described RL algorithms used in robot manipulation <br>
 - Adjusting RL on real robot applications is still limited <br>
 - But RL in robot manipulation will have a promising future ahead <br><br>
