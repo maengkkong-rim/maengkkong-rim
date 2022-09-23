@@ -127,6 +127,11 @@ Similarly, the bottom rows of table 1 show that in the `four-agent` test set, `a
 <br><br>
 
 💡 [hardware experiment] <br>
+The SA-CADRL policy is implemented on a robotic vehicle for autonomous navigation in an indoor environment with many pedestrians. Pedestrian detection and tracking are achieved by combining Lidar's pointcloud data with camera images. The speed, velocity, and size of a pedestrian are estimated by clustering the point cloud data. <br>
+
+Motion planning uses the diffusion map algorithm[^7] for finding global paths and SA-CADRL for local collision avoidance. In particular, the diffusion map algorithm considers static obstacles in the environment to find a subgoal within the vehicle's planning horizon. SA-CADRL takes in the set of detected pedestrians, and chooses an action from the feasible directions to move the vehicle toward the subgoal. <br>
+
+Using this motion planning strategy, the vehicle was `able to navigate fully autonomously` in a dynamic indoor environment. In particular, the vehicle is issued randomly generated goals ten times, with an average distance between successive goals of more than 50 meters. During the experiment, the vehicle maintained safe distance from the pedestrians and generally respected social norms.
 <br><br>
 
 <h2 id="con">Conclusion</h2>
@@ -145,3 +150,4 @@ Similarly, the bottom rows of table 1 show that in the `four-agent` test set, `a
 [^4]: 설명하다.
 [^5]: 동화되다.
 [^6]: specifies a reactive, geometric rule for computing a collision-free velocity vector. does not anticipate the evolution of an agent's state with respect to other agents nearby. can generate shortsighted actions and oscillatory paths. reference [14].
+[^7]: reference [29].
