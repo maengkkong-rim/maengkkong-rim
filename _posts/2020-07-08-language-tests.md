@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Language Tests"
-categories: paper-review codes study schedules
+categories:
 ---
 
 Note: Text is from [moving](https://github.com/huangyz0918/moving), which is another good Jekyll theme.
