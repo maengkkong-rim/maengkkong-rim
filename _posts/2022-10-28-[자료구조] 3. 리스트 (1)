@@ -1,0 +1,116 @@
+---
+layout: post
+author: jnr
+use_math : true
+published: true
+categories: study
+tags: data-structure ADT linked-list
+---
+
+---
+<h2 id="top"></h2><br>
+📝 윤성우, 『윤성우의 열혈 자료구조:C언어를 이용한 자료구조 학습서』, 오렌지미디어, 2012. <br><br>
+
+## 추상 자료형(Abstract Data Type, ADT)
+구체적인 기능의 완성과정을 언급하지 않고, 순수하게 `기능이 무엇인지`를 나열한 것. 자료형의 정의에 기능/연산과 관련된 내용을 명시할 수 있으므로 추상 '자료형'이라고 부름. 
+모든 자료구조의 그 내부 구현을 몰라도 활용할 수 있도록 하기 위함. 필요에 따라 자료 구조가 같아도 ADT는 다를 수 있음. <br><br>
+
+## 배열을 이용한 리스트의 구현
+배열을 기반으로 구현된 리스트를 `순차 리스트`라고 함. 인덱스 값을 기준으로 데이터의 참조가 쉬운 것이 장점. 
+배열의 길이가 초기에 결정되어야 하고 변경이 불가/삭제의 과정에서 데이터의 이동이 매우 빈번하다는 단점 존재. <br><br>
+
+리스트의 ADT <br>
+- void ListInit(List *plist): 초기화할 리스트의 주소 값을 인자로 전달.
+- void LInsert(List *plist, LData data): 리스트에 데이터를 저장.
+- int LFirst(List *plist, LData *pdata): 첫 번째 데이터를 pdata가 가리키는 메모리에 저장한 뒤, 성공 여부를 TRUE/FALSE로 반환.
+- int LNext(List *plist, LData *pdata): 참조된 데이터의 다음 데이터가 pdata가 가리키는 메모리에 저장한 뒤, 성공 여부를 TRUE/FALSE로 반환.
+- LData LRemove(List *plist): LFirst 또는 LNext 함수의 마지막 반환 데이터(특정 데이터)를 삭제한 뒤, 삭제한 데이터를 반환.
+- int LCount(List *plist): 리스트에 저장된 데이터 수를 반환. <br><br>
+
+```
+void ListInit(List *plist)
+{
+  (plist->numOfData) = 0;
+  (plist->curPosition) = -1;
+}
+
+void LInsert(List *plist, LData data)
+{
+  if(plist->numOfData >= LIST_LEN)
+  {
+    puts("저장 불가");
+    return;
+  }  
+  plist->arr[plist->numOfData] = data;
+  (plist->numOfData)++;
+
+int LFirst(List *plist, LData *pdata)
+{
+  if(plist->numOfData == 0)
+    return FALSE;
+  (plist->curPosition) = 0; // 참조 위치 첫 번째 데이터로 초기화
+  *pdata = plist->arr[0];
+  return TRUE;
+}
+
+int LNext(List *plist, LData *pdata)
+{
+  if(plist->curPosition >= (plist->numOfData)-1) // 더 이상 참조할 데이터가 없다면
+    return FALSE;
+  (plist->curPositioin)++;
+  *pdata = plist->arr[plist->curPosition];
+  return TRUE;
+}
+
+LData LRemove(List *plist)
+{
+  int rpos = plist->curPosition;
+  int num = plist->numOfData;
+  int i;
+  LData rdata = plist->arr[rpos];
+  for(i=rpos; i<num-1; i++)
+    plist->arr[i] = plist->arr[i+1];
+  (plist->numOfData)--;
+  (plist->curPosition)--;
+  return rdata;
+}
+
+int LCount(List *plist)
+{ return plist->numOfData;  }
+```
+
+##
+메모리의 동적 할당을 기반으로 구현된 리스트를 `연결 리스트`라고 함.
+
+
+
+
+
+
+
+
+## 알고리즘 평가 요소
+- 시간 복잡도(time complexity): 속도에 해당하는 알고리즘의 수행시간 분석 결과.
+- 공간 복잡도(space complexity): 메모리 사용량에 대한 분석결과. <br><br>
+
+일반적으로 알고리즘을 평가할 때는 실행속도에 더 초점을 둠. 알고리즘의 빠르기는 최악의 경우에서 핵심이 되는 연산의 횟수를 통해서 판단(연산 횟수가 적을수록 더 빠른 알고리즘). 데이터 수에 따라 각 알고리즘의 속도는 달라지므로, 상황에 맞는 알고리즘을 선택하여 사용. <br>
+- 순차 탐색 알고리즘: $T(n)=n$
+- 이진 탐색 알고리즘: $T(n)=log_{2}n$ <br><br>
+
+`시간 복잡도` 함수 T(n)에서 가장 영향력이 큰 부분을 따지는 방법으로 `빅-오` 표기법(Big-Oh Notation)을 사용. 빅-오의 수학적 정의: 두 개의 함수 $f(n)$과 $g(n)$이 주어졌을 때, 모든 $n\geq K$에 대하여 $f(n)\leq Cg(n)$을 만족하는 두 개의 상수 $C$와 $K$가 존재하면, $f(n)$의 빅-오는 $O(g(n))$ ($n\geq 0$, $f(n)\geq 0$, $g(n)\geq 0$). 즉, 빅-오는 증가율의 상한선을 표현하는 표기법. <br>
+- $O(1)$: 상수형 빅-오. 데이터 수에 상관없이 연산횟수가 고정.
+- $O(log n)$: 로그형 빅-오. 데이터 수의 증가율에 비해 연산횟수의 증가율이 훨씬 낮아 매우 바람직한 유형.
+- $O(n)$: 선형 빅-오.
+- $O(nlog n)$: 선형로그형 빅-오.
+- $O(n^{2})$: 데이터의 양이 많은 경우에는 적용하기 부적절. 이중으로 중첩된 반복문의 사용으로 발생하며, 그리 바람직하지 못함.
+- $O(2^{n})$: 지수형 빅-오. 사용하기에 매우 무리가 있음. <br>
+
+[`Top`](#top)
+
+---
+[^1]: reference [14]를 발전시킨 형태.
+[^2]: collision avoidance with deep reinforcement learning framework. reference [14].
+[^3]: 설명하다.
+[^4]: 동화되다.
+[^5]: specifies a reactive, geometric rule for computing a collision-free velocity vector. does not anticipate the evolution of an agent's state with respect to other agents nearby. can generate shortsighted actions and oscillatory paths. reference [14].
+[^6]:  graph-based nonlinear dimensionality reduction technique that has many applications in data processing. reference [29]. 
