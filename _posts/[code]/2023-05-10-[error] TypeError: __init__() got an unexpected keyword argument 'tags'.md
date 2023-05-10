@@ -140,7 +140,7 @@ register(
     entry_point='gym.envs.mujoco:Walker2dEnv',
 )
 ```
-to __init__.py
+to \_\_init\_\_.py
 
 then, I could run the code. <br>
 
