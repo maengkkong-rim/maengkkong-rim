@@ -57,49 +57,49 @@ follow these reference link, but I don't know it really worked.
 so I found another solution.<br>
 
 [reference link3](https://github.com/openai/roboschool/issues/112)<br>
-$ sudo apt-get update
-$ sudo apt-get upgrade
+$ sudo apt-get update<br>
+$ sudo apt-get upgrade<br><br>
 
-$ sudo apt-get install curl
-$ curl -O https://bootstrap.pypa.io/get-pip.py
-$ sudo python get-pip.py
-$ sudo python3 get-pip.py
+$ sudo apt-get install curl<br>
+$ curl -O https://bootstrap.pypa.io/get-pip.py<br>
+$ sudo python get-pip.py<br>
+$ sudo python3 get-pip.py<br><br>
 
-$ sudo pip3 install gym
+$ sudo pip3 install gym<br><br>
 
-$ sudo apt-get install git
-$ cd
-$ mkdir GitHub
-$ cd GitHub
-$ git clone https://github.com/openai/roboschool
-$ cd roboschool
-$ pwd
+$ sudo apt-get install git<br>
+$ cd<br>
+$ mkdir GitHub<br>
+$ cd GitHub<br>
+$ git clone https://github.com/openai/roboschool<br>
+$ cd roboschool<br>
+$ pwd<br><br>
 
-$ export ROBOSCHOOL_PATH=/home/GitHub/roboschool
+$ export ROBOSCHOOL_PATH=/home/GitHub/roboschool<br><br>
 
-$ sudo apt install cmake ffmpeg pkg-config qtbase5-dev libqt5opengl5-dev libassimp-dev libboost-python-dev libtinyxml-dev
-$ sudo apt-get install python3.5-dev
+$ sudo apt install cmake ffmpeg pkg-config qtbase5-dev libqt5opengl5-dev libassimp-dev libboost-python-dev libtinyxml-dev<br>
+$ sudo apt-get install python3.5-dev<br><br>
 
-$ cd
-$ cd GitHub
-$ git clone https://github.com/olegklimov/bullet3 -b roboschool_self_collision
-$ mkdir bullet3/build
-$ cd bullet3/build
-$ cmake -DBUILD_SHARED_LIBS=ON -DUSE_DOUBLE_PRECISION=1 -DCMAKE_INSTALL_PREFIX:PATH=$ROBOSCHOOL_PATH/roboschool/cpp-household/bullet_local_install -DBUILD_CPU_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_EXTRAS=OFF  -DBUILD_UNIT_TESTS=OFF -DBUILD_CLSOCKET=OFF -DBUILD_ENET=OFF -DBUILD_OPENGL3_DEMOS=OFF ..
-$ make -j4
-$ make install
-$ cd ../..
+$ cd<br>
+$ cd GitHub<br>
+$ git clone https://github.com/olegklimov/bullet3 -b roboschool_self_collision<br>
+$ mkdir bullet3/build<br>
+$ cd bullet3/build<br>
+$ cmake -DBUILD_SHARED_LIBS=ON -DUSE_DOUBLE_PRECISION=1 -DCMAKE_INSTALL_PREFIX:PATH=$ROBOSCHOOL_PATH/roboschool/cpp-household/bullet_local_install -DBUILD_CPU_DEMOS=OFF -DBUILD_BULLET2_DEMOS=OFF -DBUILD_EXTRAS=OFF  -DBUILD_UNIT_TESTS=OFF -DBUILD_CLSOCKET=OFF -DBUILD_ENET=OFF -DBUILD_OPENGL3_DEMOS=OFF ..<br>
+$ make -j4<br>
+$ make install<br>
+$ cd ../..<br><br>
 
-$ sudo pip3 install -e $ROBOSCHOOL_PATH
-(or just $ cd roboschool    $ sudo pip3 install -e .)
+$ sudo pip3 install -e $ROBOSCHOOL_PATH<br>
+(or just $ cd roboschool    $ sudo pip3 install -e .)<br><br>
 
-$ python3 $ROBOSCHOOL_PATH/agent_zoo/RoboschoolHumanoidFlagrun_v0_2017may.py
-(or just $ python3 agent_zoo/RoboschoolHumanoidFlagrun_v0_2017may.py)
+$ python3 $ROBOSCHOOL_PATH/agent_zoo/RoboschoolHumanoidFlagrun_v0_2017may.py<br>
+(or just $ python3 agent_zoo/RoboschoolHumanoidFlagrun_v0_2017may.py)<br><br><br>
 
-I undergo these method in Ubuntu, not on the server.
-and then, move '~/Github/roboschool' file to '~miniconda3/envs/[your_env_name]/lib/python3.9/site-packages/roboschool' after erase the existed roboschool file in miniconda3.
-([your_env_name] is the environment that you made in anaconda)
-after that, I met problem3.
+I undergo these method in Ubuntu, not on the server.<br>
+and then, move '~/Github/roboschool' file to '~miniconda3/envs/[your_env_name]/lib/python3.9/site-packages/roboschool' after erase the existed roboschool file in miniconda3.<br>
+([your_env_name] is the environment that you made in anaconda)<br>
+after that, I met problem3.<br>
 
 ## [Error 3] ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
 ```python
