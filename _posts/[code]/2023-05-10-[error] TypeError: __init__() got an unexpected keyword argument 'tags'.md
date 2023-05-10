@@ -9,9 +9,28 @@ tags: error gym roboschool
 
 ---
 <h2 id="top"></h2><br>
-📝 윤성우, 『윤성우의 열혈 자료구조:C언어를 이용한 자료구조 학습서』, 오렌지미디어, 2012. <br><br>
 
-## 자료구조란
+## Error 1
+```python
+$ python train.py
+
+Traceback (most recent call last):
+  File "/home/nrjeong/PPO-PyTorch/train.py", line 10, in <module>
+    import roboschool
+  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/__init__.py", line 66, in <module>
+    register(
+  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/gym/envs/registration.py", line 484, in register
+    new_spec = EnvSpec(
+TypeError: __init__() got an unexpected keyword argument 'tags'
+```
+[link] https://github.com/openai/roboschool/issues/208
+$ pip install gym==0.15.4
+$ pip install roboschool==1.0.48
+
+
+
+
+
 데이터를 표현하고 저장하는 방법. <br><br>
 
 ## 알고리즘 평가 요소
