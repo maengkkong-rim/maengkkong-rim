@@ -35,7 +35,7 @@ ERROR: No matching distribution found for roboschool==1.0.48
 ```
 so if I just run, I get another problem. <br><br>
 
-## [Error 2] ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
+## [Error 2] ImportError: [file_path]/site-packages/roboschool/cpp_household.so: invalid ELF header
 ```python
 $ python train.py
 
@@ -101,24 +101,47 @@ and then, move '~/Github/roboschool' file to '~miniconda3/envs/[your_env_name]/l
 ([your_env_name] is the environment that you made in anaconda)<br>
 after that, I met problem3.<br>
 
-## [Error 3] ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
+## [Error 3] gym.error.UnregisteredEnv: No registered env with id: RoboschoolWalker2d-v1
 ```python
 $ python train.py
 
+============================================================================================
+/home/burger/miniconda3/envs/ppo/lib/python3.9/site-packages/torch/cuda/__init__.py:546: UserWarning: Can't initialize NVML
+  warnings.warn("Can't initialize NVML")
+Device set to : NVIDIA GeForce RTX 2060
+============================================================================================
+============================================================================================
+training environment name : RoboschoolWalker2d-v1
 Traceback (most recent call last):
-  File "/home/nrjeong/PPO-PyTorch/train.py", line 10, in <module>
-    import roboschool
-  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/__init__.py", line 167, in <module>
-    from roboschool.gym_pendulums import RoboschoolInvertedPendulum
-  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/gym_pendulums.py", line 1, in <module>
-    from roboschool.scene_abstract import SingleRobotEmptyScene
-  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/scene_abstract.py", line 12, in <module>
-    from roboschool  import cpp_household   as cpp_household
-ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
+  File "/home/burger/miniconda3/envs/ppo/lib/python3.9/site-packages/gym/envs/registration.py", line 132, in spec
+    return self.env_specs[id]
+KeyError: 'RoboschoolWalker2d-v1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/burger/Desktop/PPO-PyTorch/train.py", line 254, in <module>
+    train()
+  File "/home/burger/Desktop/PPO-PyTorch/train.py", line 53, in train
+    env = gym.make(env_name)
+  File "/home/burger/miniconda3/envs/ppo/lib/python3.9/site-packages/gym/envs/registration.py", line 156, in make
+    return registry.make(id, **kwargs)
+  File "/home/burger/miniconda3/envs/ppo/lib/python3.9/site-packages/gym/envs/registration.py", line 100, in make
+    spec = self.spec(path)
+  File "/home/burger/miniconda3/envs/ppo/lib/python3.9/site-packages/gym/envs/registration.py", line 142, in spec
+    raise error.UnregisteredEnv('No registered env with id: {}'.format(id))
+gym.error.UnregisteredEnv: No registered env with id: RoboschoolWalker2d-v1
 ```
+I just go to '~miniconda3/envs/[your_env_name]/lib/python3.9/site-packages/gym/envs' and add code
+```python
+register(
+    id='RoboschoolWalker2d-v1',
+    max_episode_steps=1000,
+    entry_point='gym.envs.mujoco:Walker2dEnv',
+)
+```
+to __init__.py
 
-
-
-- $O(2^{n})$: 지수형 빅-오. 사용하기에 매우 무리가 있음. <br>
+then, I could run the code. <br>
 
 [`Top`](#top)
