@@ -24,7 +24,7 @@ Traceback (most recent call last):
 TypeError: __init__() got an unexpected keyword argument 'tags'
 ```
 [reference link](https://github.com/openai/roboschool/issues/208)<br>
-$ pip install gym==0.15.4
+$ pip install gym==0.15.4<br>
 $ pip install roboschool==1.0.48
 
 but when I enter the second one, I get an error that there is no version satisfies the requirement.<br><br>
@@ -51,10 +51,10 @@ Traceback (most recent call last):
 ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
 ```
 
-[reference link](https://velog.io/@everyman123/Mujoco-py-%EC%84%A4%EC%B9%98%EB%B2%95)<br>
-[reference link](https://blog.naver.com/pjhool/222525089743)<br>
+[reference link1](https://velog.io/@everyman123/Mujoco-py-%EC%84%A4%EC%B9%98%EB%B2%95) 
+[reference link2](https://blog.naver.com/pjhool/222525089743)<br>
 follow these reference link, but I don't know it really worked.
-so I found another solution.<br><br>
+so I found another solution.<br>
 
 [reference link](https://github.com/openai/roboschool/issues/112)<br>
 $ sudo apt-get update
