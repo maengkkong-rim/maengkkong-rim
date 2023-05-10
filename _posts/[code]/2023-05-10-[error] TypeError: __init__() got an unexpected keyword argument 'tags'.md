@@ -10,7 +10,7 @@ tags: error gym roboschool
 ---
 <h2 id="top"></h2><br>
 
-## Error 1
+## [Error 1] TypeError: __init__() got an unexpected keyword argument 'tags'
 ```python
 $ python train.py
 
@@ -23,30 +23,47 @@ Traceback (most recent call last):
     new_spec = EnvSpec(
 TypeError: __init__() got an unexpected keyword argument 'tags'
 ```
-[link] https://github.com/openai/roboschool/issues/208
+[reference link](https://github.com/openai/roboschool/issues/208)<br>
 $ pip install gym==0.15.4
 $ pip install roboschool==1.0.48
 
+but when I enter the second one, I get an error that there is no version satisfies the requirement.<br><br>
+
+```python
+ERROR: Could not find a version that satisfies the requirement roboschool==1.0.48 (from versions: 1.0.1, 1.0.3, 1.0.6, 1.0.7, 1.0.8, 1.0.15, 1.0.16, 1.0.17, 1.0.18, 1.0.19, 1.0.20, 1.0.34)
+ERROR: No matching distribution found for roboschool==1.0.48
+```
+so if I just run, I get another problem. <br><br>
+
+## [Error 2] ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
+```python
+$ python train.py
+
+Traceback (most recent call last):
+  File "/home/nrjeong/PPO-PyTorch/train.py", line 10, in <module>
+    import roboschool
+  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/__init__.py", line 167, in <module>
+    from roboschool.gym_pendulums import RoboschoolInvertedPendulum
+  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/gym_pendulums.py", line 1, in <module>
+    from roboschool.scene_abstract import SingleRobotEmptyScene
+  File "/home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/scene_abstract.py", line 12, in <module>
+    from roboschool  import cpp_household   as cpp_household
+ImportError: /home/nrjeong/.conda/envs/ppo/lib/python3.9/site-packages/roboschool/cpp_household.so: invalid ELF header
+```
+
+[reference link](https://velog.io/@everyman123/Mujoco-py-%EC%84%A4%EC%B9%98%EB%B2%95)<br>
+[reference link](https://blog.naver.com/pjhool/222525089743)<br>
+follow these reference link, but I don't know it really worked.
+so I found another solution.<br><br>
+
+[reference link](https://github.com/openai/roboschool/issues/112)<br>
+$ sudo apt-get update
+$ sudo apt-get upgrade
 
 
 
 
-데이터를 표현하고 저장하는 방법. <br><br>
 
-## 알고리즘 평가 요소
-- 시간 복잡도(time complexity): 속도에 해당하는 알고리즘의 수행시간 분석 결과.
-- 공간 복잡도(space complexity): 메모리 사용량에 대한 분석결과. <br><br>
-
-일반적으로 알고리즘을 평가할 때는 실행속도에 더 초점을 둠. 알고리즘의 빠르기는 최악의 경우에서 핵심이 되는 연산의 횟수를 통해서 판단(연산 횟수가 적을수록 더 빠른 알고리즘). 데이터 수에 따라 각 알고리즘의 속도는 달라지므로, 상황에 맞는 알고리즘을 선택하여 사용. <br>
-- 순차 탐색 알고리즘: $T(n)=n$
-- 이진 탐색 알고리즘: $T(n)=log_{2}n$ <br><br>
-
-`시간 복잡도` 함수 T(n)에서 가장 영향력이 큰 부분을 따지는 방법으로 `빅-오` 표기법(Big-Oh Notation)을 사용. 빅-오의 수학적 정의: 두 개의 함수 $f(n)$과 $g(n)$이 주어졌을 때, 모든 $n\geq K$에 대하여 $f(n)\leq Cg(n)$을 만족하는 두 개의 상수 $C$와 $K$가 존재하면, $f(n)$의 빅-오는 $O(g(n))$ ($n\geq 0$, $f(n)\geq 0$, $g(n)\geq 0$). 즉, 빅-오는 증가율의 상한선을 표현하는 표기법. <br>
-- $O(1)$: 상수형 빅-오. 데이터 수에 상관없이 연산횟수가 고정.
-- $O(log n)$: 로그형 빅-오. 데이터 수의 증가율에 비해 연산횟수의 증가율이 훨씬 낮아 매우 바람직한 유형.
-- $O(n)$: 선형 빅-오.
-- $O(nlog n)$: 선형로그형 빅-오.
-- $O(n^{2})$: 데이터의 양이 많은 경우에는 적용하기 부적절. 이중으로 중첩된 반복문의 사용으로 발생하며, 그리 바람직하지 못함.
 - $O(2^{n})$: 지수형 빅-오. 사용하기에 매우 무리가 있음. <br>
 
 [`Top`](#top)
