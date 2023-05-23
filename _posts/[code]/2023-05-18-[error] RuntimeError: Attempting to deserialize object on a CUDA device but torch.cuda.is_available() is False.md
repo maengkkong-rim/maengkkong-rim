@@ -46,23 +46,17 @@ you can also check by
 $ python
 >>> import torch
 >>> torch.cuda.is_avilable()
+and the output is 'False'
+
+[reference link](https://pytorch.org/get-started/previous-versions/)<br>
+$ pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+
+upper conda command does not work, but pip command work!
+<br><br>
 
 
 
 
-
-
-[reference link](https://github.com/openai/roboschool/issues/208)<br>
-$ pip install gym==0.15.4<br>
-$ pip install roboschool==1.0.48
-
-but when I enter the second one, I get an error that there is no version satisfies the requirement.<br>
-
-```python
-ERROR: Could not find a version that satisfies the requirement roboschool==1.0.48 (from versions: 1.0.1, 1.0.3, 1.0.6, 1.0.7, 1.0.8, 1.0.15, 1.0.16, 1.0.17, 1.0.18, 1.0.19, 1.0.20, 1.0.34)
-ERROR: No matching distribution found for roboschool==1.0.48
-```
-so if I just run, I get another problem. <br><br>
 
 
 ## [Error 2] Command 'nvcc' not found
