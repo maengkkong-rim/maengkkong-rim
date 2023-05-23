@@ -61,17 +61,9 @@ upper conda command does not work, but pip command work!
 
 ## [Error 2] Command 'nvcc' not found
 ```python
-$ nvcc -V
-Command 'nvcc' not found, but can be installed with:
-apt install nvidia-cuda-toolkit
-Please ask your administrator.
+$ 
 ```
-cuda was installed, but it cannot found it.
 
-[reference link](https://yoonchang.tistory.com/27)<br>
-$ sudo vi ~/.bashrc<br>
-export PATH="/usr/local/cuda-11.4/bin:$PATH"
-export LD_LIBRARY_PATH="/usr/local/cuda-11.4/lib64:$LD_LIBRARY_PATH"
-$ source ~/.bashrc
 
-use right version of cuda in PATH.
+[reference link](https://velog.io/@ssw9999/ImportError-libx8664-linux-gnulibstdc.so.6-version-GLIBCXX3.4.29-not-found)<br>
+$
