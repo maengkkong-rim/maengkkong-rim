@@ -54,16 +54,21 @@ $ pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 -
 upper conda command does not work, but pip command work!
 <br><br>
 
-
-
-
-
-
-## [Error 2] Command 'nvcc' not found
+## [Error 2] ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found 
 ```python
-$ 
+$ python train.py configs/256res/cars_256_pretrained.yaml
+Traceback (most recent call last):
+  File "train.py", line 3, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/home/nrjeong/.conda/envs/giraffe/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py", line 12, in <module>
+    from .writer import FileWriter, SummaryWriter  # noqa: F401
+  File "/home/nrjeong/.conda/envs/giraffe/lib/python3.8/site-packages/torch/utils/tensorboard/writer.py", line 9, in <module>
+    from tensorboard.compat.proto.event_pb2 import SessionLog
+  File "/home/nrjeong/.conda/envs/giraffe/lib/python3.8/site-packages/tensorboard/compat/proto/event_pb2.py", line 6, in <module>
+    from google.protobuf import descriptor as _descriptor
+  File "/home/nrjeong/.conda/envs/giraffe/lib/python3.8/site-packages/google/protobuf/descriptor.py", line 47, in <module>
+    from google.protobuf.pyext import _message
+ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/nrjeong/.conda/envs/giraffe/lib/python3.8/site-packages/google/protobuf/pyext/_message.cpython-38-x86_64-linux-gnu.so)
 ```
-
-
 [reference link](https://velog.io/@ssw9999/ImportError-libx8664-linux-gnulibstdc.so.6-version-GLIBCXX3.4.29-not-found)<br>
 $
